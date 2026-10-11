@@ -1,0 +1,6 @@
+{
+  "layout": "layouts/article.njk",
+  "eyebrow": "Blog",
+  "breadcrumbs": [{ "title": "Blog", "url": "/blog/" }],
+  "tags": ["post"]
+}

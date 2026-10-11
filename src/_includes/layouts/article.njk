@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+---
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    {% if eyebrow %}<p class="eyebrow">{{ eyebrow }}</p>{% endif %}
+    <h1 id="page-heading">{{ h1 }}</h1>
+    {% if lede %}<p class="page-hero__sub">{{ lede }}</p>{% endif %}
+    {% if meta %}<p class="article-meta">{{ meta }}</p>{% endif %}
+  </div>
+</section>
+
+<article class="band">
+  <div class="container article">
+    <div class="prose flow">
+      {{ content | safe }}
+    </div>
+    <aside class="article-aside" aria-label="Free calculator">
+      <p class="eyebrow">Free</p>
+      <p class="article-aside__title">See what your missed calls cost.</p>
+      <p>Plug in four numbers you already know.</p>
+      <p><a class="button" href="/tools/missed-revenue-calculator/" data-track="cta_click" data-label="article-aside-calculator">Open the calculator</a></p>
+    </aside>
+  </div>
+</article>
+
+{% if related and related.length %}
+<nav class="band band--white related" aria-label="Keep reading">
+  <div class="container related__inner">
+    {%- for item in related %}
+    <a class="related__link" href="{{ item.url }}">{{ item.title }}</a>
+    {%- endfor %}
+  </div>
+</nav>
+{% endif %}
+
+{% if disclaimer %}
+<div class="container"><p class="article-disclaimer">{{ disclaimer }}</p></div>
+{% endif %}

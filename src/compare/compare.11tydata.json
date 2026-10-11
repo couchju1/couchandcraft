@@ -1,0 +1,6 @@
+{
+  "layout": "layouts/article.njk",
+  "eyebrow": "Comparison",
+  "breadcrumbs": [{ "title": "Lead Response", "url": "/lead-response/" }],
+  "tags": ["compare"]
+}

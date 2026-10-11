@@ -197,3 +197,29 @@ document.querySelectorAll("[data-form]").forEach((form) => {
     submit.textContent = "Sending";
   });
 });
+
+document.querySelectorAll("[data-calculator]").forEach((form) => {
+  const results = document.querySelector(".calc__numbers");
+  if (!results) return;
+  const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  const whole = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+  const read = (name) => Math.max(0, Number(form.elements[name].value) || 0);
+  const pct = (name) => Math.min(100, read(name)) / 100;
+  const show = (key, text) => {
+    results.querySelector(`[data-out="${key}"]`).textContent = text;
+  };
+
+  const update = () => {
+    const missed = read("calls") * pct("missed");
+    const jobs = missed * pct("booked");
+    const monthly = jobs * read("value");
+    show("missed", whole.format(missed));
+    show("jobs", whole.format(jobs));
+    show("monthly", money.format(monthly));
+    show("yearly", money.format(monthly * 12));
+  };
+
+  form.addEventListener("input", update);
+  form.addEventListener("submit", (event) => event.preventDefault());
+  update();
+});

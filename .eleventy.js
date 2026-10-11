@@ -76,6 +76,14 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("phpString", (value) => `'${String(value ?? "").replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`);
   eleventyConfig.addFilter("hostname", (url) => new URL(url).hostname.replace(/^www\./, ""));
 
+  eleventyConfig.amendLibrary("md", (md) => {
+    md.renderer.rules.table_open = (tokens, idx, options, env) => {
+      env.tableCount = (env.tableCount || 0) + 1;
+      return `<div class="table-wrap" role="region" tabindex="0" aria-label="Table ${env.tableCount}, scrolls sideways on small screens"><table>\n`;
+    };
+    md.renderer.rules.table_close = () => "</table></div>\n";
+  });
+
   eleventyConfig.addCollection("caseCopy", (api) => {
     const copy = {};
     for (const item of api.getFilteredByGlob("src/work/_copy/*.md")) copy[item.fileSlug] = item.data;

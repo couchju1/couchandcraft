@@ -16,9 +16,9 @@ module.exports = function (eleventyConfig) {
     return value;
   });
 
-  eleventyConfig.addPassthroughCopy({ "src/assets/css": "assets/css" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/css/*.css": "assets/css" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/js/*.js": "assets/js" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/fonts/*.woff2": "assets/fonts" });
 
   eleventyConfig.addGlobalData("env", isProduction ? "production" : "development");
 

@@ -1,0 +1,31 @@
+.sg-section { padding-block: var(--space-2xl); border-top: 1px solid var(--line); }
+.sg-section > * + * { margin-top: var(--space-m); }
+.sg-note { color: var(--slate); font-size: var(--step--1); }
+.band--navy .sg-note { color: #C4CCDA; }
+
+.sg-steps { list-style: none; padding: 0; display: grid; gap: var(--space-m); }
+.sg-steps li { max-width: none; display: grid; gap: var(--space-3xs); }
+.sg-steps code { color: var(--slate); font-size: var(--step--1); }
+
+.sg-fonts { display: grid; gap: var(--space-m); }
+.sg-fonts p { max-width: none; }
+
+.sg-swatches { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: var(--space-s); }
+.sg-swatches li { max-width: none; font-size: var(--step--1); }
+.sg-swatch { height: 4rem; border-radius: var(--radius-s); border: 1px solid var(--line); margin-bottom: var(--space-2xs); }
+
+.sg-table-wrap { overflow-x: auto; }
+.sg-table { border-collapse: collapse; width: 100%; font-size: var(--step--1); }
+.sg-table th, .sg-table td { text-align: left; padding: var(--space-2xs) var(--space-s) var(--space-2xs) 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.sg-sample { display: inline-block; padding: var(--space-3xs) var(--space-2xs); border-radius: var(--radius-s); font-weight: 600; white-space: nowrap; }
+
+.sg-states { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--space-m) var(--space-s); align-items: start; }
+.sg-states figure { display: grid; gap: var(--space-2xs); justify-items: start; }
+.sg-states figcaption { font-size: var(--step--1); color: var(--slate); }
+.band--navy .sg-states figcaption { color: #C4CCDA; }
+.sg-navy { padding: var(--space-l); border-radius: var(--radius-m); }
+
+.button.is-hover { --button-bg: var(--button-bg-hover); --button-border: var(--button-border-hover); }
+.button.is-active { --button-bg: var(--button-bg-active); --button-border: var(--button-bg-active); transform: translateY(1px); }
+.is-focus { outline: var(--focus-width) solid var(--focus-color); outline-offset: var(--focus-offset); }
+.text-link.is-hover { text-decoration-thickness: 2px; }

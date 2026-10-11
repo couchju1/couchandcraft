@@ -1,0 +1,110 @@
+<div class="container">
+  <header class="sg-section flow">
+    <p class="eyebrow">Temporary page, deleted in Step 15</p>
+    <h1>Styleguide</h1>
+    <p class="lead">Tokens, type and button states for Couch &amp; Craft. Everything here comes from <code>tokens.css</code>, <code>base.css</code> and <code>components.css</code>.</p>
+  </header>
+
+  <section class="sg-section" aria-labelledby="sg-type">
+    <h2 id="sg-type">Type scale</h2>
+    <p class="sg-note">Fluid between 360px and 1280px viewports. Resize the window to see each step move.</p>
+    <ol class="sg-steps">
+      {% for step in steps %}
+      <li>
+        <code>--step-{{ step }}</code>
+        <span style="font-family: var(--font-display); font-size: var(--step-{{ step }}); line-height: var(--leading-tight)">Your work is good. Your website should <em>prove it.</em></span>
+        <span style="font-size: var(--step-{{ step }})">I plan, write, design and build websites for service businesses around Sioux Falls.</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-fonts">
+    <h2 id="sg-fonts">Typefaces</h2>
+    <div class="sg-fonts">
+      <div>
+        <p class="sg-note">Display: Fraunces, 600, with italic for accent words</p>
+        <p style="font-family: var(--font-display); font-size: var(--step-4); font-weight: 600; line-height: var(--leading-tight)">A website that looks like the business <em style="font-weight: 500">you built.</em></p>
+      </div>
+      <div>
+        <p class="sg-note">Label: Montserrat 700, caps, tracked</p>
+        <p class="eyebrow">Justin Couch · Web design in Sioux Falls, SD</p>
+      </div>
+      <div>
+        <p class="sg-note">Body: Public Sans 400, with <em>italic</em> and <strong>bold</strong></p>
+        <p>You get more calls from Facebook than from your website. You'd rather not send a big customer to your site. You're not sure anyone ever fills out the contact form.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-color">
+    <h2 id="sg-color">Color</h2>
+    <ul class="sg-swatches">
+      {% for c in colors %}
+      <li><div class="sg-swatch" style="background: var({{ c.token }})"></div><code>{{ c.token }}</code><br>{{ c.hex }}</li>
+      {% endfor %}
+    </ul>
+    <h3>Contrast</h3>
+    <p class="sg-note">WCAG 2.2 ratios, calculated at build time. Text needs 4.5:1 (3:1 for large text and UI parts).</p>
+    <div class="sg-table-wrap">
+      <table class="sg-table">
+        <thead><tr><th scope="col">Sample</th><th scope="col">Pair</th><th scope="col">Use</th><th scope="col">Ratio</th><th scope="col">Result</th></tr></thead>
+        <tbody>
+          {% for p in pairs %}
+          <tr>
+            <td><span class="sg-sample" style="color: var({{ p.fg }}); background: var({{ p.bg }})">Aa Sample</span></td>
+            <td><code>{{ p.fg }}</code> on <code>{{ p.bg }}</code></td>
+            <td>{{ p.use }}</td>
+            <td>{{ p.ratio }}:1</td>
+            <td>{{ p.grade }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-buttons">
+    <h2 id="sg-buttons">Buttons</h2>
+    <p class="sg-note">Hover, focus and active are forced here so every state is visible at once. The real buttons below each row respond to mouse and keyboard.</p>
+    {% set states = [["Default", ""], ["Hover", "is-hover"], ["Focus visible", "is-focus"], ["Active", "is-active"]] %}
+
+    <h3>On paper</h3>
+    {% for variant in [["Primary", "button"], ["Secondary", "button button--secondary"]] %}
+    <div class="sg-states">
+      {% for s in states %}
+      <figure><span class="{{ variant[1] }} {{ s[1] }}">Start a project</span><figcaption>{{ variant[0] }}, {{ s[0] | lower }}</figcaption></figure>
+      {% endfor %}
+      <figure><button class="{{ variant[1] }}" type="button" disabled>Start a project</button><figcaption>{{ variant[0] }}, disabled</figcaption></figure>
+      <figure><button class="{{ variant[1] }}" type="button" aria-busy="true">Sending</button><figcaption>{{ variant[0] }}, loading</figcaption></figure>
+      <figure><button class="{{ variant[1] }}" type="button">Try me</button><figcaption>{{ variant[0] }}, live</figcaption></figure>
+    </div>
+    {% endfor %}
+    <div class="sg-states">
+      {% for s in states %}
+      <figure><span class="text-link {{ s[1] }}">Read the story</span><figcaption>Text link, {{ s[0] | lower }}</figcaption></figure>
+      {% endfor %}
+      <figure><a class="text-link" href="/styleguide/">Try me</a><figcaption>Text link, live</figcaption></figure>
+    </div>
+
+    <div class="band--navy sg-navy">
+      <h3>On navy</h3>
+      {% for variant in [["Gold", "button button--gold"], ["Secondary", "button button--secondary"]] %}
+      <div class="sg-states">
+        {% for s in states %}
+        <figure><span class="{{ variant[1] }} {{ s[1] }}">Start a project</span><figcaption>{{ variant[0] }}, {{ s[0] | lower }}</figcaption></figure>
+        {% endfor %}
+        <figure><button class="{{ variant[1] }}" type="button" disabled>Start a project</button><figcaption>{{ variant[0] }}, disabled</figcaption></figure>
+        <figure><button class="{{ variant[1] }}" type="button" aria-busy="true">Sending</button><figcaption>{{ variant[0] }}, loading</figcaption></figure>
+        <figure><button class="{{ variant[1] }}" type="button">Try me</button><figcaption>{{ variant[0] }}, live</figcaption></figure>
+      </div>
+      {% endfor %}
+      <div class="sg-states">
+        {% for s in states %}
+        <figure><span class="text-link {{ s[1] }}">See pricing</span><figcaption>Text link, {{ s[0] | lower }}</figcaption></figure>
+        {% endfor %}
+        <figure><a class="text-link" href="/styleguide/">Try me</a><figcaption>Text link, live</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</div>

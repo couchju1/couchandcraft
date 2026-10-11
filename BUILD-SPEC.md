@@ -394,8 +394,8 @@ Each page lists sections in order with each section's job. **★** marks the pag
 2. **★ Before/after slider.** *Job:* proof before any claim.
    - H2: `Same instructor. Same 50 years of teaching. New website.`
    - Before: screenshot of `randygpool.wixsite.com/randygpool`. After: screenshot of the HOFBA live site `[NEEDS: live URL]`.
-   - Pins on the before: (1) `A Wix ad across the top of every page` (2) `Menu pages named "copy-of-about" and "blank"` (3) `The browser tab just said "Home | randygpool"` (4) `No contact form, and the phone number wasn't tap-to-call`
-   - All four were checked against the live Wix site on October 11, 2026. The site does show a phone number (on Contact and in the footer), so never say email was the only way to reach Randy.
+   - Pins on the before: (1) `A Wix ad across the top of every page` (2) `Menu pages named "copy-of-about" and "blank"` (3) `The browser tab just said "Home | randygpool"` (4) `No contact form, and the phone number wasn't tap-to-call` (5) `On a phone, the page ran off the side of the screen` (pin 5 goes on the 390px mobile capture, shown beside or below the slider on small screens)
+   - All five were checked against the live Wix site on October 11, 2026. The site does show a phone number (on Contact and in the footer), so never say email was the only way to reach Randy.
    - Pins on the after: `[COPY: 3 to 4 specific decisions from the HOFBA build]`
    - Link: `Read how it came together` → case study.
 3. **Sound familiar?** (four lines, left-aligned, large type). *Job:* problem first.
@@ -492,7 +492,7 @@ Migration: fetch the live proclientflow.com pages, port the content and rewrite 
 ### 7.7 Case study layout (`/work/*`)
 
 1. Hero: client, industry, town, live link.
-2. The problem. For HOFBA: annotated before screenshot with the four pins from 7.1.
+2. The problem. For HOFBA: annotated before screenshots (desktop and mobile) with the five pins from 7.1.
 3. What I built: 3 or 4 decisions, each with a reason. `[COPY per case]`
 4. **★** HOFBA: full-width before/after slider. Others: desktop and phone screenshots side by side with pins.
 5. Results: render only if `results` is set. `[NEEDS CLIENT PROOF]`

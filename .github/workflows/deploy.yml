@@ -5,12 +5,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      target:
-        description: Where to deploy
-        type: choice
-        options: [staging, production]
-        default: staging
 
 permissions:
   contents: read
@@ -20,8 +14,8 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
           cache: npm
@@ -34,56 +28,19 @@ jobs:
   deploy:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    environment: ${{ inputs.target || 'staging' }}
+    environment: production
     concurrency:
-      group: deploy-${{ inputs.target || 'staging' }}
+      group: deploy-production
       cancel-in-progress: false
-    env:
-      TARGET: ${{ inputs.target || 'staging' }}
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
           cache: npm
       - run: npm ci
-
-      - name: Build (staging)
-        if: env.TARGET == 'staging'
-        run: npm run build
-
-      - name: Build (production)
-        if: env.TARGET == 'production'
-        run: npm run build:prod
-
+      - run: npm run build:prod
       - run: npm run check
-
-      - name: Lock down staging
-        if: env.TARGET == 'staging'
-        env:
-          STAGING_USER: ${{ secrets.STAGING_USER }}
-          STAGING_PASSWORD: ${{ secrets.STAGING_PASSWORD }}
-          STAGING_HTPASSWD_PATH: ${{ secrets.STAGING_HTPASSWD_PATH }}
-        run: |
-          for name in STAGING_USER STAGING_PASSWORD STAGING_HTPASSWD_PATH; do
-            if [ -z "${!name}" ]; then echo "::error::Missing secret $name in the staging environment"; exit 1; fi
-          done
-          printf '%s:%s\n' "$STAGING_USER" "$(printf '%s' "$STAGING_PASSWORD" | openssl passwd -apr1 -stdin)" > dist/.htpasswd
-          cat > dist/.htaccess <<HTACCESS
-          AuthType Basic
-          AuthName "Couch & Craft staging"
-          AuthUserFile ${STAGING_HTPASSWD_PATH}
-          Require valid-user
-
-          <Files ".htpasswd">
-            Require all denied
-          </Files>
-
-          <IfModule mod_headers.c>
-            Header always set X-Robots-Tag "noindex, nofollow"
-          </IfModule>
-          HTACCESS
-          printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
 
       - name: Upload to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@8e83cea8672e3fbcbb9fdafff34debf6ae4c5f65 # v4.3.5
@@ -91,6 +48,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR || './' }}
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           local-dir: ./dist/

@@ -1,21 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }}</title>
-  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
-  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  <script>document.documentElement.className = "js";</script>
+  {% include "partials/meta.njk" %}
   <link rel="preload" href="/assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   {% for sheet in stylesheets %}<link rel="stylesheet" href="{{ sheet }}">
-  {% endfor %}</head>
+  {% endfor %}
+  <script src="/assets/js/main.js" defer></script>
+  {% include "partials/schema.njk" %}
+</head>
 <body>
-  <main id="main">
+  {% include "partials/header.njk" %}
+  <main id="main" tabindex="-1">
+    {% if crumbs.length > 1 %}<div class="container">{% include "partials/breadcrumbs.njk" %}</div>{% endif %}
     {{ content | safe }}
   </main>
+  {% if cta !== false %}{% include "partials/cta-band.njk" %}{% endif %}
+  {% include "partials/footer.njk" %}
+  {% include "partials/mobile-bar.njk" %}
 </body>
 </html>

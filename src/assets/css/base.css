@@ -134,3 +134,24 @@ button, input, select, textarea { font: inherit; color: inherit; }
   white-space: nowrap;
   border: 0;
 }
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2xs);
+  left: var(--space-2xs);
+  z-index: 100;
+  padding: var(--space-xs) var(--space-s);
+  background: var(--navy-900);
+  color: var(--paper);
+  font-weight: 600;
+  border-radius: var(--radius-s);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+main:focus { outline: none; }
+
+@media (max-width: 767px) {
+  :root { --mobile-bar-space: calc(4rem + env(safe-area-inset-bottom, 0px)); }
+  html { scroll-padding-bottom: calc(var(--mobile-bar-space) + var(--space-s)); }
+}

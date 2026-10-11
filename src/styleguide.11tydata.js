@@ -44,6 +44,7 @@ module.exports = {
   layout: "layouts/base.njk",
   title: "Styleguide | Couch & Craft",
   noindex: true,
+  crumb: "Styleguide",
   stylesheets: ["/assets/css/styleguide.css"],
   eleventyExcludeFromCollections: true,
   colors: Object.entries(colors).map(([token, hex]) => ({ token, hex })),

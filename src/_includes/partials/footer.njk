@@ -1,0 +1,53 @@
+<footer class="site-footer band--navy">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a class="site-footer__logo" href="/">{% include "partials/logo.njk" %}</a>
+      <p class="site-footer__descriptor">{% for part in site.business.descriptor.split(" · ") %}<span>{{ part }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+      <p class="site-footer__note">Formerly {{ site.business.formerName }}.</p>
+    </div>
+
+    <div class="site-footer__contact">
+      <h2 class="site-footer__heading">Get in touch</h2>
+      <ul class="site-footer__list">
+        <li>{% set kind = "phone" %}{% set location = "footer" %}{% include "partials/contact-link.njk" %}</li>
+        <li>{% set kind = "email" %}{% include "partials/contact-link.njk" %}</li>
+        {% if site.contact.hours %}<li>{{ site.contact.hours | open }}</li>{% endif %}
+      </ul>
+      <p><a class="button button--gold" href="{{ nav.cta.url }}" data-track="cta_click" data-label="footer">{{ nav.cta.title }}</a></p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <h2 class="site-footer__heading">Pages</h2>
+      <ul class="site-footer__list">
+        {%- for item in nav.primary %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__nav" aria-label="More">
+      <h2 class="site-footer__heading">More</h2>
+      <ul class="site-footer__list">
+        {%- for item in nav.more %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-footer__area">
+      <h2 class="site-footer__heading">Where I work</h2>
+      {%- set nearby = [] -%}
+      {%- for town in site.business.serviceArea -%}{%- if town != site.business.city -%}{%- set nearby = (nearby.push(town), nearby) -%}{%- endif -%}{%- endfor -%}
+      <p>Based in {{ site.business.city }}, {{ site.business.state }}, and working with businesses in {% for town in nearby %}{% if loop.last and nearby.length > 1 %}and {% endif %}{{ town }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+    </div>
+  </div>
+
+  <div class="container site-footer__base">
+    <p>&copy; {{ build.year }} {{ site.business.name }}</p>
+    <ul class="site-footer__legal">
+      {%- for item in nav.legal %}
+      <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</footer>

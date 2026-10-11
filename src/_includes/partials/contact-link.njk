@@ -1,0 +1,7 @@
+{%- if kind == "phone" -%}
+  {%- if site.contact.phoneE164 | isSet -%}<a href="tel:{{ site.contact.phoneE164 }}" data-track="phone_click" data-location="{{ location }}">{{ site.contact.phoneDisplay | open }}</a>
+  {%- else -%}{{ site.contact.phoneDisplay | open }}{%- endif -%}
+{%- elif kind == "email" -%}
+  {%- if site.contact.email | isSet -%}<a href="mailto:{{ site.contact.email }}" data-track="email_click" data-location="{{ location }}">{{ site.contact.email }}</a>
+  {%- else -%}{{ site.contact.email | open }}{%- endif -%}
+{%- endif -%}

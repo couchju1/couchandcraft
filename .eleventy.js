@@ -1,7 +1,6 @@
 const isProduction = process.env.ELEVENTY_ENV === "production";
 
-const isOpen = (value) => typeof value === "string" && value.trim().startsWith("[");
-const isSet = (value) => value !== null && value !== undefined && value !== "" && !isOpen(value);
+const { isOpen, isSet } = require("./lib/values");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("isSet", isSet);
@@ -15,6 +14,10 @@ module.exports = function (eleventyConfig) {
     }
     return value;
   });
+
+  eleventyConfig.addFilter("jsonLd", (value) => JSON.stringify(value).replace(/</g, "\\u003c"));
+
+  eleventyConfig.addFilter("absoluteUrl", (url, base) => new URL(url, base).href);
 
   eleventyConfig.addPassthroughCopy({ "src/assets/css/*.css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js/*.js": "assets/js" });

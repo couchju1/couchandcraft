@@ -586,7 +586,7 @@ Redirects (301). Add proclientflow.com to Hostinger as an **addon domain** (its 
 
 Each old URL redirects in one hop, `http` and `https`, with and without `www`.
 
-On couchandcraft.com: force https and `www` (decided, matches `business.url`), add trailing slashes, return a real 404. Security headers in `.htaccess`: `Strict-Transport-Security` (start with `max-age=300`, raise to a year after launch checks pass), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, mic, geolocation off), and a `Content-Security-Policy` that allows self plus GA4 (`googletagmanager.com`, `google-analytics.com`) and the checkout provider once chosen.
+On couchandcraft.com: force https and `www` (decided, matches `business.url`), add trailing slashes, return a real 404. Security headers in `.htaccess`: `Strict-Transport-Security` (start with `max-age=300`, raise to a year after launch checks pass), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, mic, geolocation off), and a `Content-Security-Policy` that allows self plus GA4 (`googletagmanager.com`, `google-analytics.com`) and the checkout provider once chosen. The one inline script (in `layouts/base.njk`, it swaps the `no-js` class for `js`) is allowed by its `sha256` hash, not `unsafe-inline`.
 
 Search Console Change of Address: before launch, check what the tool requires of the old homepage redirect. If it warns that `/` → `/lead-response/` isn't a homepage-to-homepage move, decide with Justin whether to send `/` to `/` instead.
 

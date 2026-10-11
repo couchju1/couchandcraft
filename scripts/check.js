@@ -15,8 +15,7 @@ const configOnly = args.includes("--config");
 const errors = [];
 const fail = (msg) => errors.push(msg);
 
-const isOpen = (v) => typeof v === "string" && v.trim().startsWith("[");
-const isSet = (v) => v !== null && v !== undefined && v !== "" && !isOpen(v);
+const { isOpen, isSet } = require("../lib/values");
 const isObject = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
 
 function requireKeys(obj, keys, where) {

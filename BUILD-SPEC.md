@@ -69,7 +69,7 @@ Status: Strategy and sitemap approved. Design tokens and copy below are **provis
   - **Time-trap:** `main.js` writes the page-load timestamp into a hidden field when the page loads. Pages are static, so a timestamp written at build time would be useless. The handler rejects submissions under 3 seconds after load or with no timestamp.
   - **SMTP credentials** never go in the repo. The handler reads them from `contact-config.php` placed one level above `public_html` on Hostinger (`require dirname(__DIR__) . '/contact-config.php'`). The repo holds only `api/contact-config.example.php` with empty values.
 - **Analytics:** GA4 plus Google Search Console. `[JUSTIN TO SET: GA4 measurement ID]`
-- **Deploy:** `npm run build` outputs `dist/`. Deploy `dist/` to `public_html` through a GitHub Action over FTP/SFTP, or Hostinger's Git deploy. Check Hostinger's current Git/SSH options before choosing, since plan features change. Deploy credentials live only in GitHub Actions secrets. Set up in Step 10, with a staging subdomain (for example `staging.couchandcraft.com`, `noindex` and password-protected) that the `main` branch deploys to before production.
+- **Deploy:** `npm run build` outputs `dist/`. Deploy `dist/` to `public_html` through a GitHub Action over FTP/SFTP, or Hostinger's Git deploy. Check Hostinger's current Git/SSH options before choosing, since plan features change. Deploy credentials live only in GitHub Actions secrets. Set up in Step 10. No staging site (decided October 11, 2026): a push to `main` deploys to production, and the production build's open-value check keeps unfinished pages off the live site.
 - **Images:** `@11ty/eleventy-img` generates AVIF, WebP and a fallback with `srcset`, `width` and `height` from source files in `src/assets/img/`.
 - **Checks:** `npm run check` runs `scripts/check.js`: valid `site.config.json`, title and meta lengths, one H1 per page, and (with `--prelaunch`) the copy and open-item checks from Step 15. `npm run build` runs the config check first.
 - **Canonical host:** `https://www.couchandcraft.com` (matches `business.url`). The apex redirects to `www`.
@@ -673,13 +673,13 @@ Commit: `Build work section and case studies`
 Contractors and insurance agents.
 Commit: `Build industry pages`
 
-**Step 10: Deploy pipeline and staging**
-GitHub Action that runs `npm run check` and `npm run build`, then deploys `dist/` to the staging subdomain (and to production on a manual trigger). Credentials in GitHub Actions secrets only. Staging is `noindex` (header plus robots) and password-protected.
-Accept: a push to `main` updates staging. Production deploy is a manual run. Setup steps and secrets are in `DEPLOY.md`. Staging gets its own `.htaccess` (basic auth plus `X-Robots-Tag: noindex, nofollow`), `.htpasswd` and a disallow-all `robots.txt`, written at deploy time. The production `.htaccess` from Step 13 must not be written into staging builds.
-Commit: `Add deploy pipeline and staging`
+**Step 10: Deploy pipeline**
+GitHub Action that runs a check build on pull requests, and on a push to `main` runs `npm run build:prod` and `npm run check`, then uploads `dist/` to `public_html` over FTP. Credentials in GitHub Actions secrets only. No staging site. Setup steps are in `DEPLOY.md`.
+Accept: a pull request runs the build, check and accessibility scan without uploading. A push to `main` deploys only when the production build passes.
+Commit: `Add deploy pipeline`
 
 **Step 11: About, Start, Thanks, Teardown, form handler**
-`api/contact.php` with honeypot, time-trap, validation, SMTP send and redirect. SMTP credentials from `contact-config.php` above `public_html` (Section 2). Test with a real submission on staging.
+`api/contact.php` with honeypot, time-trap, validation, SMTP send and redirect. SMTP credentials from `contact-config.php` above `public_html` (Section 2). Test with a real submission on the live site after launch, or locally with `php -S` against a real SMTP account before then.
 Commit: `Build about, start, teardown and contact handler`
 
 **Step 12: Migrated pages**
@@ -737,6 +737,6 @@ Commit: `Human pass and pre-launch cleanup`
 - Record one example teardown video
 - Shop checkout provider, product prices, and whether the calculator workbook is paid or free
 - SMTP mailbox for form delivery (`contact-config.php` on the server)
-- Hostinger deploy access (FTP/SFTP or SSH details for GitHub secrets) and a staging subdomain
+- Hostinger FTP details in the `production` environment secrets
 - Sources for every Lead Response stat
 - Privacy and Terms copy (must mention GA4 and the form handler)

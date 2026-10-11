@@ -4,12 +4,14 @@
   "private": true,
   "description": "couchandcraft.com, built with Eleventy",
   "scripts": {
-    "dev": "node scripts/check.js --config && eleventy --serve",
-    "build": "node scripts/check.js --config && eleventy",
-    "build:prod": "node scripts/check.js --config && cross-env ELEVENTY_ENV=production eleventy",
+    "dev": "node scripts/check.js --config && npm run clean && eleventy --serve",
+    "build": "node scripts/check.js --config && npm run clean && eleventy",
+    "build:prod": "node scripts/check.js --config && npm run clean && cross-env ELEVENTY_ENV=production eleventy",
     "check": "node scripts/check.js",
     "test:a11y": "node scripts/a11y.js",
-    "og": "node scripts/og.js"
+    "og": "node scripts/og.js",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "check:prelaunch": "node scripts/check.js --prelaunch"
   },
   "engines": {
     "node": ">=22"

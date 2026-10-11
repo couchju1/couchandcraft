@@ -699,7 +699,7 @@ Accept: 0 critical, 0 serious axe issues. Events visible in GA4 DebugView.
 Commit: `Add analytics events and fix accessibility issues`
 
 **Step 15: Human pass and pre-launch QA**
-Delete `/styleguide/`. Run `npm run check -- --prelaunch`: banned words, em/en dashes and semicolons in **visible text** (Section 0, rule 7), `[COPY:`, `[NEEDS`, `[JUSTIN TO`, `[CLIENT TO`, `lorem` in visible text, and `console.log`, `href="#"`, generator tags in raw output. Then a production build, which fails on any open value. Report every hit.
+Delete `/styleguide/`. Run `npm run check:prelaunch` (after `npm run build`): banned words, em/en dashes and semicolons in **visible text** (Section 0, rule 7), `[COPY:`, `[NEEDS`, `[JUSTIN TO`, `[CLIENT TO`, `lorem` in visible text, and `console.log`, `href="#"`, generator tags in raw output. Then a production build, which fails on any open value. Report every hit.
 Commit: `Human pass and pre-launch cleanup`
 
 ---

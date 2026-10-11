@@ -50,6 +50,29 @@ module.exports = async function (eleventyConfig) {
       acceptedAnswer: { "@type": "Answer", text: String(item.a).replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim() },
     })),
   }));
+  eleventyConfig.addFilter("serviceSchema", (service, site) => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: service.name,
+      serviceType: service.type || service.name,
+      description: service.description,
+      provider: { "@id": `${site.business.url}/#business` },
+      areaServed: site.business.serviceArea.map((town) => ({ "@type": "City", name: `${town}, ${site.business.state}` })),
+    };
+    const price = service.price && isSet(service.price) ? Number(String(service.price).replace(/[^0-9.]/g, "")) : NaN;
+    if (Number.isFinite(price) && price > 0) {
+      schema.offers = { "@type": "Offer", priceCurrency: "USD", price: String(price) };
+    }
+    return schema;
+  });
+  eleventyConfig.addFilter("packageRows", (packages, pricing) => {
+    const from = (value) => (isSet(value) ? `From ${value}` : value);
+    return [
+      ...(packages || []).map((row) => ({ label: row.label, cells: [row.foundation, row.signature] })),
+      { label: "Price", cells: [from(pricing.foundationFrom), from(pricing.signatureFrom)] },
+    ];
+  });
   eleventyConfig.addFilter("hostname", (url) => new URL(url).hostname.replace(/^www\./, ""));
 
   eleventyConfig.addPassthroughCopy({ "src/assets/css/*.css": "assets/css" });

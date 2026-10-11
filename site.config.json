@@ -61,6 +61,83 @@
       "weeks": "[JUSTIN TO SET]"
     }
   ],
+  "webDesign": {
+    "includesConfirmed": false,
+    "includes": [
+      "Copy written for you",
+      "Mobile-first design",
+      "A contact form that reaches your inbox",
+      "Google Business Profile setup or cleanup",
+      "Call and form tracking",
+      "Speed and accessibility checks",
+      "A site you own"
+    ],
+    "packages": [
+      {
+        "label": "Pages",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Copywriting",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Strategy session",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Custom design",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Photo direction",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Local SEO",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Schema markup",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Call and form tracking",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Google Business Profile",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Revisions",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      },
+      {
+        "label": "Timeline",
+        "foundation": "[JUSTIN TO SET]",
+        "signature": "[JUSTIN TO SET]"
+      }
+    ]
+  },
+  "carePlan": {
+    "includes": [
+      "[JUSTIN TO SET: what the Care & Growth plan includes each month]"
+    ]
+  },
+  "leadResponse": {
+    "integrations": "[JUSTIN TO VERIFY: works alongside Jobber, Housecall Pro and ServiceTitan]"
+  },
   "social": {
     "googleBusinessProfile": null,
     "facebook": null,

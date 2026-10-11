@@ -1,3 +1,5 @@
 <script type="application/ld+json">{{ schema.business | jsonLd | safe }}</script>
 {% if breadcrumbTrail %}<script type="application/ld+json">{{ breadcrumbTrail | jsonLd | safe }}</script>
 {% endif %}
+{% if service %}<script type="application/ld+json">{{ service | serviceSchema(site) | jsonLd | safe }}</script>
+{% endif %}

@@ -90,20 +90,7 @@ cta: false
   </div>
 </section>
 
-<section class="band process" aria-labelledby="process-heading">
-  <div class="container flow" style="--flow-space: var(--space-l)">
-    <h2 id="process-heading">How a project goes</h2>
-    <ol class="process__steps">
-      {%- for item in site.process %}
-      <li class="process__step">
-        <p class="process__weeks">{{ item.weeks | open }}</p>
-        <h3 class="process__title">{{ item.step }}</h3>
-        <p>[COPY: one line on this step, Phase 5]</p>
-      </li>
-      {%- endfor %}
-    </ol>
-  </div>
-</section>
+{% include "partials/process.njk" %}
 
 <section class="band band--navy price-band" aria-labelledby="price-heading">
   <div class="container price-band__inner">

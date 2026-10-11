@@ -1,0 +1,120 @@
+---
+layout: layouts/base.njk
+title: "Missed Call Text Back for Contractors | Couch & Craft"
+description: "When you can't pick up, callers get a text in seconds and a way to book. Built for HVAC, plumbing, electrical and roofing."
+crumb: "Lead Response"
+service:
+  name: "Missed call text back"
+  type: "Lead response"
+  description: "When a contractor can't pick up, the caller gets a text in seconds and a way to book."
+cta: false
+---
+{%- set lr = leadResponse -%}
+<p class="notice-strip">
+  <span class="container">{{ site.business.formerName }} is now part of {{ site.business.name }}. Same service, new name.</span>
+</p>
+
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">For {{ lr.trades | join(" · ") }}</p>
+    <h1 id="page-heading">Every missed call is a job you already paid for.</h1>
+    <p class="page-hero__sub">When you can't pick up, the caller gets a text back in seconds and a way to book. No office hire.</p>
+    <p class="hero__actions">
+      <a class="button button--gold" href="#setup" data-track="cta_click" data-label="lead-response-hero">Book a setup call</a>
+      <a class="button button--secondary" href="/tools/missed-revenue-calculator/">Get the free calculator</a>
+    </p>
+  </div>
+</section>
+
+<section class="band call-board-section" aria-labelledby="board-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="board-heading">Same three calls. Two different outcomes.</h2>
+    <div class="call-board">
+      <div class="call-board__col call-board__col--before">
+        <p class="call-board__label">Before · Voicemail</p>
+        <ul class="call-board__list">
+          {%- for call in lr.before %}
+          <li class="call-board__call"><span class="call-board__who">{{ call.who }}</span><span class="call-board__what">{{ call.what }}</span><span class="call-board__when">{{ call.when }}</span></li>
+          {%- endfor %}
+        </ul>
+        <p class="call-board__result">3 jobs gone to the next contractor.</p>
+      </div>
+      <div class="call-board__col call-board__col--after">
+        <p class="call-board__label">After · Text back in seconds</p>
+        <ul class="call-board__list">
+          {%- for call in lr.after %}
+          <li class="call-board__call"><span class="call-board__who">{{ call.who }}</span><span class="call-board__what">{{ call.what }}</span><span class="call-board__when">{{ call.when }}</span></li>
+          {%- endfor %}
+        </ul>
+        <p class="call-board__result">3 jobs on your calendar.</p>
+      </div>
+    </div>
+    <p class="call-board__note">Illustrative example. Names and numbers are made up.</p>
+
+    {%- set sourced = lr.stats | selectattr("source") -%}
+    {%- if sourced.length %}
+    <dl class="stats">
+      {%- for stat in sourced %}
+      <div class="stats__item"><dt>{{ stat.label }}</dt><dd>{{ stat.value }}</dd><p class="stats__source">Source: {% if stat.sourceUrl %}<a href="{{ stat.sourceUrl }}" rel="noopener">{{ stat.source }}</a>{% else %}{{ stat.source }}{% endif %}</p></div>
+      {%- endfor %}
+    </dl>
+    <p class="call-board__note">Industry benchmarks, vendor-published. Directional, not a guarantee.</p>
+    {%- else %}
+    <p class="review-note">[JUSTIN TO VERIFY sources: {{ lr.stats.length }} stats from proclientflow.com are held back until each has a source]</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="how-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="how-heading">How a missed call becomes a booked job</h2>
+    <ol class="how-steps">
+      {%- for step in lr.steps %}
+      <li class="how-steps__item"><h3>{{ step.title }}</h3><p>{{ step.text }}</p></li>
+      {%- endfor %}
+    </ol>
+    <p class="integrations">{{ site.leadResponse.integrations | open }}</p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="trades-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="trades-heading">Set up for how your trade gets calls</h2>
+    <dl class="trades">
+      {%- for row in lr.tradeRows %}
+      <div class="trades__row"><dt>{{ row.trade }}</dt><dd>{{ row.text }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="calc-heading">
+  <div class="container calc-cta">
+    <div class="flow">
+      <p class="eyebrow">Free</p>
+      <h2 id="calc-heading">How much are missed calls costing you?</h2>
+      <p>Plug in a few numbers you already know and see your monthly loss in dollars. Takes about ten minutes.</p>
+      <p><a class="button" href="/tools/missed-revenue-calculator/" data-track="cta_click" data-label="lead-response-calculator">Get the calculator</a></p>
+    </div>
+    <nav class="compare-links" aria-labelledby="compare-heading">
+      <h3 id="compare-heading">Comparing options?</h3>
+      <ul>
+        {%- for item in lr.compare %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<section class="band" id="setup" aria-labelledby="setup-heading">
+  <div class="container home-form__inner">
+    <div class="flow">
+      <h2 id="setup-heading">Book a setup call</h2>
+      <p>Tell me a little about how calls come in now. I'll show you what the text back would look like for your business.</p>
+      <p>See <a href="/pricing/">pricing</a> or <a href="/work/">the sites I've built</a>.</p>
+    </div>
+    {% set form = { id: "setup-form", type: "lead-response", preselect: "I'm missing calls", submitLabel: "Book my setup call" } %}
+    {% include "partials/form.njk" %}
+  </div>
+</section>

@@ -1,0 +1,15 @@
+{#- Optional: processHeading, processNotes (list of strings, same order as site.process) -#}
+<section class="band process" aria-labelledby="process-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="process-heading">{{ processHeading or "How a project goes" }}</h2>
+    <ol class="process__steps">
+      {%- for item in site.process %}
+      <li class="process__step">
+        <p class="process__weeks">{{ item.weeks | open }}</p>
+        <h3 class="process__title">{{ item.step }}</h3>
+        <p>{{ processNotes[loop.index0] if processNotes else "[COPY: one line on this step, Phase 5]" }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

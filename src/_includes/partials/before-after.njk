@@ -13,7 +13,7 @@
     <div class="before-after__layer before-after__layer--before">
       <img src="{{ beforeNote.image }}" alt="{{ beforeNote.alt }}" sizes="(min-width: 1280px) 76rem, 100vw">
       {%- for pin in beforeNote.pins %}
-      <a class="pins__marker" href="#{{ (beforeNote.id if compare.hideNotes else compare.id) }}-note-{{ loop.index }}" style="--x: {{ pin.x }}%; --y: {{ pin.y }}%" aria-label="Note {{ loop.index }}" data-pin="{{ compare.id }}-{{ loop.index }}">{{ loop.index }}</a>
+      <span class="pins__marker" style="--x: {{ pin.x }}%; --y: {{ pin.y }}%" aria-hidden="true" data-pin="{{ compare.id }}-{{ loop.index }}">{{ loop.index }}</span>
       {%- endfor %}
       <span class="before-after__tag before-after__tag--before" aria-hidden="true">Before</span>
     </div>

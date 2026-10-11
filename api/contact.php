@@ -92,9 +92,9 @@ function contact_fallback(array $settings): string
     return $ways ? '<p>You can also ' . implode(' or ', $ways) . '.</p>' : '';
 }
 
-function thanks(): never
+function thanks(string $type = ''): never
 {
-    header('Location: /start/thanks/', true, 303);
+    header('Location: /start/thanks/' . ($type !== '' ? '?form=' . rawurlencode($type) : ''), true, 303);
     exit;
 }
 
@@ -273,4 +273,4 @@ try {
     page(502, 'Message not sent', '<h1>Your message didn\'t go through</h1><p>Something went wrong on my end, not yours.</p>' . contact_fallback($settings) . back_link());
 }
 
-thanks();
+thanks($type);

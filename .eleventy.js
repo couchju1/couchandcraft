@@ -102,6 +102,12 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "api/contact.php": "api/contact.php" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/og/*.jpg": "assets/img/og" });
 
+  eleventyConfig.on("eleventy.before", () => {
+    if (!isProduction) return;
+    const { analytics } = require("./site.config.json");
+    if (!isSet(analytics.ga4)) throw new Error(`Production build needs analytics.ga4 in site.config.json (got ${analytics.ga4})`);
+  });
+
   eleventyConfig.addGlobalData("env", isProduction ? "production" : "development");
 
   return {

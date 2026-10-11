@@ -155,3 +155,6 @@ main:focus { outline: none; }
   :root { --mobile-bar-space: calc(4rem + env(safe-area-inset-bottom, 0px)); }
   html { scroll-padding-bottom: calc(var(--mobile-bar-space) + var(--space-s)); }
 }
+
+.band--white { background: var(--white); }
+.band--white + .band--white { border-top: 1px solid var(--line); }

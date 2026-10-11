@@ -55,6 +55,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/css/*.css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js/*.js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts/*.woff2": "assets/fonts" });
+  eleventyConfig.addPassthroughCopy({ "api/*.php": "api" });
 
   eleventyConfig.addGlobalData("env", isProduction ? "production" : "development");
 

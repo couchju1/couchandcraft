@@ -52,7 +52,7 @@
         <tbody>
           {% for p in pairs %}
           <tr>
-            <td><span class="sg-sample" style="color: var({{ p.fg }}); background: var({{ p.bg }})">Aa Sample</span></td>
+            <td><span class="sg-sample" aria-hidden="true" style="color: var({{ p.fg }}); background: var({{ p.bg }})"></span></td>
             <td><code>{{ p.fg }}</code> on <code>{{ p.bg }}</code></td>
             <td>{{ p.use }}</td>
             <td>{{ p.ratio }}:1</td>
@@ -108,12 +108,52 @@
     </div>
   </section>
 
+  <section class="sg-section" aria-labelledby="sg-slider">
+    <h2 id="sg-slider">Before/after slider</h2>
+    <p class="sg-note">Drag, tap, or focus the slider and use the arrow keys (5% a step), Page Up and Page Down (20%), Home and End.</p>
+    {% set compare = { id: "sg-compare", label: "Compare Randy's old Wix site with the new one", before: "hofba-before-desktop", after: null, afterMissing: "[NEEDS: HOFBA live URL for the after screenshot]" } %}
+    {% include "partials/before-after.njk" %}
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-pins">
+    <h2 id="sg-pins">Annotation pins</h2>
+    {% set annotation = annotations["hofba-before-mobile"] %}{% set pinsSizes = "(min-width: 768px) 24rem, 100vw" %}
+    <div class="sg-pins-mobile">{% include "partials/pins.njk" %}</div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-work">
+    <h2 id="sg-work">Work cards</h2>
+    <div class="sg-grid">
+      {%- for entry in site.work | published %}
+      {% include "partials/work-card.njk" %}
+      {%- endfor %}
+    </div>
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-table">
+    <h2 id="sg-table">Comparison table</h2>
+    {% set table = sampleTable %}
+    {% include "partials/compare-table.njk" %}
+  </section>
+
+  <section class="sg-section" aria-labelledby="sg-receipt">
+    <h2 id="sg-receipt">Receipt</h2>
+    {% set receipt = sampleReceipt %}
+    {% include "partials/receipt.njk" %}
+  </section>
+
+  <section class="sg-section">
+    {% set faqs = sampleFaqs %}{% set faqId = "sg-faq" %}{% set faqHeading = "FAQ" %}
+    {% include "partials/faq.njk" %}
+  </section>
+
   <section class="sg-section" aria-labelledby="sg-form">
-    <h2 id="sg-form">Form placeholder</h2>
-    <p class="sg-note">Stand-in for the form partial from Step 4. On phones, the bottom bar hides while this form is on screen.</p>
-    <form class="flow" action="/styleguide/" method="get">
-      <p><label for="sg-name">Name</label><br><input id="sg-name" name="name" autocomplete="name"></p>
-      <p><button class="button" type="submit">Send</button></p>
-    </form>
+    <h2 id="sg-form">Forms</h2>
+    <p class="sg-note">Submit empty to see the error summary and inline errors. On phones, the bottom bar hides while a form is on screen.</p>
+    {% set form = { id: "sg-project", type: "project" } %}
+    {% include "partials/form.njk" %}
+    <h3>Teardown variant</h3>
+    {% set form = { id: "sg-teardown", type: "teardown", submitLabel: "Request my teardown" } %}
+    {% include "partials/form.njk" %}
   </section>
 </div>

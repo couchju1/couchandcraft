@@ -53,4 +53,29 @@ module.exports = {
     return { fg, bg, fgHex: colors[fg], bgHex: colors[bg], use, ratio: r.toFixed(2), grade: grade(r) };
   }),
   steps: ["5", "4", "3", "2", "1", "0", "-1"],
+  sampleTable: {
+    caption: "Sample comparison",
+    columns: ["Foundation", "Signature"],
+    rows: [
+      { label: "Copywriting", cells: [true, true] },
+      { label: "Custom design", cells: [false, true] },
+      { label: "Price", cells: ["[JUSTIN TO SET]", "[JUSTIN TO SET]"] },
+    ],
+    note: "Layout sample. Real rows come in Step 6.",
+  },
+  sampleReceipt: {
+    title: "Work order",
+    number: "No. 0001",
+    lines: [
+      { item: "Sample line item", detail: "Layout sample. Real lines come in Step 7.", amount: "$0", pin: 1 },
+      { item: "Another line", amount: "$0" },
+    ],
+    totalLabel: "Total",
+    total: "$0",
+    pins: [{ n: 1, text: "Pins explain a line in plain words." }],
+  },
+  sampleFaqs: [
+    { q: "Sample question", a: "<p>Answers can hold a short paragraph or two.</p>" },
+    { q: "Another sample question", a: "<p>Each item is a native details element, so it works without JavaScript.</p>" },
+  ],
 };

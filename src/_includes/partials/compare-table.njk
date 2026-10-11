@@ -1,0 +1,25 @@
+{#- Expects: table = { caption, columns: [..], rows: [{ label, cells: [..] }], note } -#}
+<div class="compare-table" role="region" aria-label="{{ table.caption }}" tabindex="0">
+  <table class="compare-table__table">
+    <caption class="compare-table__caption">{{ table.caption }}</caption>
+    <thead>
+      <tr>
+        <td></td>
+        {%- for col in table.columns %}
+        <th scope="col">{{ col }}</th>
+        {%- endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {%- for row in table.rows %}
+      <tr>
+        <th scope="row">{{ row.label }}</th>
+        {%- for cell in row.cells %}
+        <td>{% if cell === true %}<span class="compare-table__yes">Included</span>{% elif cell === false %}<span class="compare-table__no">Not included</span>{% else %}{{ cell | open | safe }}{% endif %}</td>
+        {%- endfor %}
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>
+{% if table.note %}<p class="compare-table__note">{{ table.note }}</p>{% endif %}

@@ -622,8 +622,8 @@ Write like Justin talks. Use local details and real numbers. Read it aloud.
 | Justin headshot (supplied, logo cropped) | About, Meet Justin | 4:5 | Supplied | Justin Couch, web designer in Sioux Falls | justin-couch.jpg |
 | HOFBA before (Wix) | Home slider, case study | 16:10, 9:19 | Captured October 11, 2026 at 1440px and 390px (`src/assets/img/work/source/`). Never recapture over these | The old Wix site for Randy G., with a Wix ad banner at the top | hofba-before-desktop.png, hofba-before-mobile.png |
 | HOFBA after | Home slider, case study | 16:10 | Playwright capture | The new Hall of Fame Billiard Academy website | hofba-after.png |
-| Nate Hall Insurance desktop + mobile | Work, case study, insurance page | 16:10, 9:19 | Playwright capture | Nate Hall Insurance website on desktop and phone | nate-hall-desktop.png, nate-hall-mobile.png |
-| Top Teer desktop + mobile | When published | 16:10, 9:19 | Playwright capture | Top Teer Construction website on desktop and phone | top-teer-desktop.png, top-teer-mobile.png |
+| Nate Hall Insurance desktop + mobile | Work, case study, insurance page | 16:10, 9:19 | Playwright capture | Nate Hall Insurance website on desktop and phone | nate-hall-insurance-desktop.png, nate-hall-insurance-mobile.png |
+| Top Teer desktop + mobile | When published | 16:10, 9:19 | Playwright capture | Top Teer Construction website on desktop and phone | top-teer-construction-desktop.png, top-teer-construction-mobile.png |
 | PlayPoolNation desktop | Work | 16:10 | Playwright capture | PlayPoolNation venue directory homepage | playpoolnation-desktop.png |
 | Default OG image | Social shares | 1200x630 | Built from brand | Couch & Craft, web design in Sioux Falls | og-default.jpg |
 

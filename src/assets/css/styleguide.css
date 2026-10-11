@@ -29,3 +29,7 @@
 .button.is-active { --button-bg: var(--button-bg-active); --button-border: var(--button-bg-active); transform: translateY(1px); }
 .is-focus { outline: var(--focus-width) solid var(--focus-color); outline-offset: var(--focus-offset); }
 .text-link.is-hover { text-decoration-thickness: 2px; }
+.sg-grid { display: grid; gap: var(--space-l); grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+.sg-pins-mobile { max-width: 24rem; }
+.sg-pins-mobile .pins__notes { grid-template-columns: 1fr; }
+.sg-sample::before { content: "Aa Sample"; }

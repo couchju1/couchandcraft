@@ -36,8 +36,7 @@
 
     <div class="site-footer__area">
       <h2 class="site-footer__heading">Where I work</h2>
-      {%- set nearby = [] -%}
-      {%- for town in site.business.serviceArea -%}{%- if town != site.business.city -%}{%- set nearby = (nearby.push(town), nearby) -%}{%- endif -%}{%- endfor -%}
+      {%- set nearby = site.business.serviceArea | without(site.business.city) -%}
       <p>Based in {{ site.business.city }}, {{ site.business.state }}, and working with businesses in {% for town in nearby %}{% if loop.last and nearby.length > 1 %}and {% endif %}{{ town }}{% if not loop.last %}, {% endif %}{% endfor %}.</p>
     </div>
   </div>

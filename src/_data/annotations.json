@@ -1,0 +1,42 @@
+{
+  "hofba-before-desktop": {
+    "id": "hofba-before",
+    "image": "/assets/img/work/source/hofba-before-desktop.png",
+    "alt": "The old Wix site for Randy G., with a Wix ad banner at the top",
+    "pins": [
+      {
+        "x": 27,
+        "y": 3,
+        "text": "A Wix ad across the top of every page"
+      },
+      {
+        "x": 61,
+        "y": 22,
+        "text": "Menu pages named \"copy-of-about\" and \"blank\""
+      },
+      {
+        "x": 3,
+        "y": 3,
+        "text": "The browser tab just said \"Home | randygpool\""
+      },
+      {
+        "x": 80,
+        "y": 22,
+        "text": "No contact form, and the phone number wasn't tap-to-call"
+      }
+    ]
+  },
+  "hofba-before-mobile": {
+    "id": "hofba-before-mobile",
+    "start": 5,
+    "image": "/assets/img/work/source/hofba-before-mobile.png",
+    "alt": "The old Wix site on a phone, with the page running off the right edge of the screen",
+    "pins": [
+      {
+        "x": 93,
+        "y": 12,
+        "text": "On a phone, the page ran off the side of the screen"
+      }
+    ]
+  }
+}

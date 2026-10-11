@@ -1,0 +1,30 @@
+{#- Expects: receipt = { title, number, lines: [{ item, detail, amount, pin }], totalLabel, total, pins: [{ n, text }] } -#}
+<figure class="receipt">
+  <div class="receipt__paper">
+    <header class="receipt__head">
+      <p class="receipt__title">{{ receipt.title }}</p>
+      {% if receipt.number %}<p class="receipt__number">{{ receipt.number }}</p>{% endif %}
+    </header>
+    <ol class="receipt__lines">
+      {%- for line in receipt.lines %}
+      <li class="receipt__line">
+        <span class="receipt__item">{% if line.pin %}<a class="pins__marker pins__marker--inline" href="#receipt-note-{{ line.pin }}" aria-label="Note {{ line.pin }}">{{ line.pin }}</a>{% endif %}{{ line.item }}{% if line.detail %}<span class="receipt__detail">{{ line.detail }}</span>{% endif %}</span>
+        <span class="receipt__leader" aria-hidden="true"></span>
+        <span class="receipt__amount">{{ line.amount | open }}</span>
+      </li>
+      {%- endfor %}
+    </ol>
+    {% if receipt.total %}
+    <p class="receipt__total"><span>{{ receipt.totalLabel or "Total" }}</span><span class="receipt__leader" aria-hidden="true"></span><span class="receipt__amount">{{ receipt.total | open }}</span></p>
+    {% endif %}
+  </div>
+  {% if receipt.pins and receipt.pins.length %}
+  <figcaption>
+    <ol class="pins__notes">
+      {%- for pin in receipt.pins %}
+      <li id="receipt-note-{{ pin.n }}" class="pins__note" value="{{ pin.n }}"><span class="pins__num" aria-hidden="true">{{ pin.n }}</span><span>{{ pin.text }}</span></li>
+      {%- endfor %}
+    </ol>
+  </figcaption>
+  {% endif %}
+</figure>

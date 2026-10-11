@@ -532,7 +532,7 @@
 .compare-table__no::before { content: ""; width: 0.6rem; height: 2px; background: var(--slate); }
 .compare-table__note { margin-top: var(--space-xs); color: var(--slate); font-size: var(--step--1); }
 
-.receipt { display: grid; gap: var(--space-m); }
+.receipt { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-m); }
 .receipt__paper {
   max-width: 40rem;
   padding: var(--space-l) var(--space-m);
@@ -552,7 +552,7 @@
 .receipt__item { display: inline-flex; flex-wrap: wrap; align-items: center; max-width: 70%; }
 .receipt__detail { flex-basis: 100%; color: var(--slate); }
 .receipt__leader { flex: 1; min-width: 1.5rem; border-bottom: 2px dotted var(--line); transform: translateY(-0.3em); }
-.receipt__amount { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.receipt__amount { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; text-align: right; }
 .receipt__total { padding-top: var(--space-s); border-top: 2px solid var(--navy-900); font-weight: 700; }
 
 .faq { display: grid; gap: var(--space-m); }
@@ -865,3 +865,13 @@ main > .notice-strip + .page-hero { margin-top: 0; }
 .compare-links ul { margin: 0; padding: 0; list-style: none; }
 .compare-links a { display: inline-flex; align-items: center; min-height: 44px; }
 @media (min-width: 1024px) { .calc-cta { grid-template-columns: 1.4fr 1fr; } }
+
+.pricing-intro__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); align-items: start; }
+.pricing-intro h1 { max-width: 16ch; }
+@media (min-width: 1024px) { .pricing-intro__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.plan-links { padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-l); }
+.plan-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.two-up { display: grid; gap: var(--space-xl); }
+@media (min-width: 768px) { .two-up { grid-template-columns: 1fr 1fr; } }
+.plain-list { padding-left: var(--space-m); display: grid; gap: var(--space-2xs); }
+.receipt__item { min-width: 0; }

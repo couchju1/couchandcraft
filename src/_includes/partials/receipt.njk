@@ -8,7 +8,7 @@
     <ol class="receipt__lines">
       {%- for line in receipt.lines %}
       <li class="receipt__line">
-        <span class="receipt__item">{% if line.pin %}<a class="pins__marker pins__marker--inline" href="#receipt-note-{{ line.pin }}" aria-label="Note {{ line.pin }}">{{ line.pin }}</a>{% endif %}{{ line.item }}{% if line.detail %}<span class="receipt__detail">{{ line.detail }}</span>{% endif %}</span>
+        <span class="receipt__item">{% if line.pin %}<a class="pins__marker pins__marker--inline" href="#receipt-note-{{ line.pin }}" aria-label="Note {{ line.pin }}">{{ line.pin }}</a>{% endif %}{{ line.item | open }}{% if line.detail %}<span class="receipt__detail">{{ line.detail }}</span>{% endif %}</span>
         <span class="receipt__leader" aria-hidden="true"></span>
         <span class="receipt__amount">{{ line.amount | open }}</span>
       </li>
@@ -22,7 +22,7 @@
   <figcaption>
     <ol class="pins__notes">
       {%- for pin in receipt.pins %}
-      <li id="receipt-note-{{ pin.n }}" class="pins__note" value="{{ pin.n }}"><span class="pins__num" aria-hidden="true">{{ pin.n }}</span><span>{{ pin.text }}</span></li>
+      <li id="receipt-note-{{ pin.n }}" class="pins__note" value="{{ pin.n }}"><span class="pins__num" aria-hidden="true">{{ pin.n }}</span><span>{{ pin.text | open }}</span></li>
       {%- endfor %}
     </ol>
   </figcaption>

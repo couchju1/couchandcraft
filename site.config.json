@@ -41,7 +41,45 @@
     "leadResponseSetup": "[JUSTIN TO SET]",
     "leadResponseMonthly": "[JUSTIN TO SET]",
     "paymentTerms": "[JUSTIN TO SET]",
-    "ownershipPolicy": "[JUSTIN TO CONFIRM: client owns domain, site files and accounts]"
+    "ownershipPolicy": "[JUSTIN TO CONFIRM: client owns domain, site files and accounts]",
+    "signatureReceipt": {
+      "lines": [
+        {
+          "item": "[COPY: Signature line item, Phase 5]",
+          "amount": "[JUSTIN TO SET]",
+          "pin": 1
+        },
+        {
+          "item": "[COPY: Signature line item, Phase 5]",
+          "amount": "[JUSTIN TO SET]"
+        },
+        {
+          "item": "[COPY: Signature line item, Phase 5]",
+          "amount": "[JUSTIN TO SET]",
+          "pin": 2
+        },
+        {
+          "item": "[COPY: Signature line item, Phase 5]",
+          "amount": "[JUSTIN TO SET]"
+        }
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "text": "[COPY: why this line costs what it does]"
+        },
+        {
+          "n": 2,
+          "text": "[COPY: why this line costs what it does]"
+        }
+      ]
+    },
+    "notIncluded": [
+      "Photography",
+      "Ad spend",
+      "Domain renewal"
+    ],
+    "notIncludedConfirmed": false
   },
   "process": [
     {

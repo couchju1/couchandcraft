@@ -13,6 +13,7 @@
   {% for sheet in stylesheets %}<link rel="stylesheet" href="{{ sheet }}">
   {% endfor %}
   <script src="/assets/js/main.js?v={{ build.version }}" defer></script>
+  {% if site.analytics.ga4 | isSet %}<script src="/assets/js/analytics.js?v={{ build.version }}" data-ga4="{{ site.analytics.ga4 }}" async></script>{% endif %}
   {% include "partials/schema.njk" %}
 </head>
 <body>

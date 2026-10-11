@@ -42,6 +42,48 @@ function serve() {
   return new Promise((resolve) => server.listen(0, () => resolve(server)));
 }
 
+async function keyboardIssues(page) {
+  const total = await page.evaluate(
+    () =>
+      [...document.querySelectorAll("a[href], button:not([disabled]), input:not([type=hidden]), select, textarea, summary, [tabindex]:not([tabindex='-1'])")].filter(
+        (el) => el.offsetParent !== null || getComputedStyle(el).position === "fixed"
+      ).length
+  );
+  const issues = [];
+  const seen = new Set();
+  let finished = false;
+
+  for (let i = 0; i < total + 15; i++) {
+    await page.keyboard.press("Tab");
+    const state = await page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return { done: true };
+      const frame = el.classList.contains("before-after__range") ? el.closest(".before-after__frame") : null;
+      const style = getComputedStyle(frame || el);
+      const rect = (frame || el).getBoundingClientRect();
+      const bar = document.querySelector("[data-mobile-bar]");
+      const barShown = bar && !bar.classList.contains("is-hidden") && getComputedStyle(bar).display !== "none";
+      const barRect = barShown ? bar.getBoundingClientRect() : null;
+      return {
+        key: `${el.tagName} ${el.getAttribute("href") || el.id || el.textContent.trim().slice(0, 30)}`,
+        outline: style.outlineStyle !== "none" && parseFloat(style.outlineWidth) > 0,
+        underBar: Boolean(barRect && !bar.contains(el) && rect.top >= barRect.top - 1),
+        offscreen: rect.bottom < 0 || rect.top > innerHeight,
+      };
+    });
+    if (state.done || seen.has(state.key)) {
+      finished = true;
+      break;
+    }
+    seen.add(state.key);
+    if (!state.outline) issues.push(`no visible focus: ${state.key}`);
+    if (state.underBar) issues.push(`focus hidden under mobile bar: ${state.key}`);
+    if (state.offscreen) issues.push(`focus off screen: ${state.key}`);
+  }
+  if (!finished && seen.size < total) issues.push(`possible keyboard trap after ${seen.size} of ${total} stops`);
+  return issues;
+}
+
 (async () => {
   if (!fs.existsSync(distDir)) {
     process.stderr.write("dist/ not found. Run npm run build first.\n");
@@ -55,7 +97,7 @@ function serve() {
   for (const file of pages(distDir)) {
     const url = "/" + path.relative(distDir, file).replace(/index\.html$/, "").split(path.sep).join("/");
     for (const width of widths) {
-      const page = await browser.newPage({ viewport: { width, height: 900 } });
+      const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: "reduce" });
       await page.goto(base + url, { waitUntil: "load" });
       await page.addScriptTag({ content: axeSource });
       const results = await page.evaluate(() =>
@@ -70,6 +112,13 @@ function serve() {
         for (const node of v.nodes.slice(0, 3)) process.stdout.write(`         ${node.target.join(" ")}\n`);
       }
       failures += serious.length;
+
+      const keyboard = await keyboardIssues(page);
+      if (keyboard.length) {
+        process.stdout.write(`FAIL ${url} @${width}px  keyboard: ${keyboard.length}\n`);
+        for (const issue of keyboard.slice(0, 5)) process.stdout.write(`       ${issue}\n`);
+      }
+      failures += keyboard.length;
       await page.close();
     }
   }

@@ -1,0 +1,64 @@
+---
+layout: layouts/base.njk
+title: "About Justin Couch | Couch & Craft, Sioux Falls"
+description: "I'm Justin Couch, a web designer in Sioux Falls. You'll deal with me from the first call to launch day, and after."
+crumb: "About"
+person: true
+---
+<section class="band about-intro" aria-labelledby="page-heading">
+  <div class="container about-intro__inner">
+    <div class="about-intro__photo">
+      <div class="photo-needed" role="img" aria-label="Photo of Justin coming soon"><p>[NEEDS REAL PHOTO: Justin's headshot]</p></div>
+    </div>
+    <div class="flow">
+      <p class="eyebrow">About</p>
+      <h1 id="page-heading">I'm {{ site.business.founder }}. Yes, that's the Couch.</h1>
+      <p class="lead">[COPY: Justin's story in his own words, Phase 5]</p>
+      {%- if site.about.showDayJob %}
+      <p>[COPY: day job mention]</p>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="how-heading">
+  <div class="container two-up">
+    <h2 id="how-heading">How I work</h2>
+    <ul class="promises">
+      <li class="promises__item"><strong>I reply within {{ site.contact.responseTime | open }}.</strong> Email, form or voicemail.</li>
+      <li class="promises__item"><strong>One point of contact.</strong> You talk to me from the first call to launch day, and after. Nobody hands you off.</li>
+      <li class="promises__item"><strong>A 30-minute call to start.</strong> Then I write the words, so you're not stuck filling out a questionnaire.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="wont-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="wont-heading">What I won't do</h2>
+    <dl class="wont">
+      <div class="wont__item"><dt>Lock you in</dt><dd>{{ site.pricing.ownershipPolicy | open }}</dd></div>
+      <div class="wont__item"><dt>Send surprise invoices</dt><dd>The price we agree on is the price. If the job changes, you hear about it before the work, not after.</dd></div>
+      <div class="wont__item"><dt>Write fake reviews</dt><dd>Not for you and not for me. Real customers only.</dd></div>
+      <div class="wont__item"><dt>Disappear after launch</dt><dd>I live in {{ site.business.city }} and I answer my own phone. That doesn't stop when the site goes live.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="tools-heading">
+  <div class="container two-up">
+    <h2 id="tools-heading">About the tools</h2>
+    <p class="lead">I use AI for parts of the work, like research and first drafts. A person checks every word and every line of code before it ships. That person is me.</p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="area-heading">
+  <div class="container flow">
+    <h2 id="area-heading">Where I work</h2>
+    <ul class="towns">
+      {%- for town in site.business.serviceArea %}
+      <li>{{ town }}</li>
+      {%- endfor %}
+    </ul>
+    <p>See <a href="/work/">the sites I've built</a> or <a href="/pricing/">what it costs</a>.</p>
+  </div>
+</section>

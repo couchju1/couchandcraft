@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: "Free Website Teardown, Sioux Falls | Couch & Craft"
+description: "Send me your website and I'll record a short video showing what's costing you calls. Free, and no pitch unless you ask."
+crumb: "Free teardown"
+cta: false
+---
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">Free</p>
+    <h1 id="page-heading">Send me your website. I'll tell you what's costing you calls.</h1>
+    <p class="page-hero__sub">A 10-minute recorded video walking through the fixes that matter most. No pitch unless you ask.</p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="example-heading">
+  <div class="container two-up">
+    <div class="flow">
+      <h2 id="example-heading">What a teardown looks like</h2>
+      <p>I open your site the way a customer would, on a phone and on a laptop, and talk through what I see. You get the video and a short list of what to fix first. Do them yourself, hand them to whoever built the site, or ask me.</p>
+    </div>
+    <div class="video-needed"><p>[NEEDS: record one example teardown video]</p></div>
+  </div>
+</section>
+
+<section class="band band--white" id="request" aria-labelledby="request-heading">
+  <div class="container home-form__inner">
+    <div class="flow">
+      <h2 id="request-heading">Request your teardown</h2>
+      <p>Just the address and where to send the video.</p>
+    </div>
+    {% set form = { id: "teardown-form", type: "teardown", submitLabel: "Request my teardown" } %}
+    {% include "partials/form.njk" %}
+  </div>
+</section>

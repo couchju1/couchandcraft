@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+title: "Start a Project | Couch & Craft"
+noindex: true
+cta: false
+crumb: "Start a project"
+---
+<section class="band start" aria-labelledby="page-heading">
+  <div class="container start__inner">
+    <div class="flow start__aside">
+      <h1 id="page-heading">Start a project</h1>
+      <p class="lead">Tell me a bit about your business.{% if site.contact.responseTime | isSet %} I'll reply within {{ site.contact.responseTime }}.{% else %} I'll reply within {{ site.contact.responseTime | open }}.{% endif %}</p>
+      <h2 class="start__subhead">What happens next</h2>
+      <ol class="next-steps">
+        <li>I read what you sent and look at your current site, if you have one.</li>
+        <li>I reply with a couple of questions or a time for a 30-minute call.</li>
+        <li>On the call, we figure out if a new site makes sense. If it doesn't, I'll tell you.</li>
+      </ol>
+      <p class="start__call">Rather call? {% set kind = "phone" %}{% set location = "start" %}{% include "partials/contact-link.njk" %}</p>
+    </div>
+    {% set form = { id: "start-form", type: "project", submitLabel: "Send it to Justin" } %}
+    {% include "partials/form.njk" %}
+  </div>
+</section>

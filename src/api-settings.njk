@@ -1,0 +1,12 @@
+---
+permalink: /api/settings.php
+eleventyExcludeFromCollections: true
+---
+<?php
+return [
+    'to' => {{ site.contact.formTo | open | phpString | safe }},
+    'site' => {{ site.business.name | phpString | safe }},
+    'phone_display' => {{ site.contact.phoneDisplay | phpString | safe }},
+    'phone_e164' => {{ site.contact.phoneE164 | phpString | safe }},
+    'email' => {{ site.contact.email | phpString | safe }},
+];

@@ -51,18 +51,6 @@ cta: false
       </div>
     </div>
     <p class="call-board__note">Illustrative example. Names and numbers are made up.</p>
-
-    {%- set sourced = lr.stats | selectattr("source") -%}
-    {%- if sourced.length %}
-    <dl class="stats">
-      {%- for stat in sourced %}
-      <div class="stats__item"><dt>{{ stat.label }}</dt><dd>{{ stat.value }}</dd><p class="stats__source">Source: {% if stat.sourceUrl %}<a href="{{ stat.sourceUrl }}" rel="noopener">{{ stat.source }}</a>{% else %}{{ stat.source }}{% endif %}</p></div>
-      {%- endfor %}
-    </dl>
-    <p class="call-board__note">Industry benchmarks, vendor-published. Directional, not a guarantee.</p>
-    {%- else %}
-    <p class="review-note">[JUSTIN TO VERIFY sources: {{ lr.stats.length }} stats from proclientflow.com are held back until each has a source]</p>
-    {%- endif %}
   </div>
 </section>
 

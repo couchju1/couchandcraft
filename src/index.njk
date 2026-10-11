@@ -18,25 +18,37 @@ cta: false
       </p>
     </div>
     <div class="hero__photo">
-      <div class="photo-needed" role="img" aria-label="Photo of Justin coming soon"><p>[NEEDS REAL PHOTO: Justin's headshot, cropped to remove the shirt logo]</p></div>
+      <img class="portrait" src="/assets/img/brand/justin-couch.jpg" alt="{{ site.business.founder }}, web designer in {{ site.business.city }}" sizes="(min-width: 1024px) 22rem, 8.5rem" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
 
+{%- set hofbaAfter = ("work/source/" + hofba.slug + "-desktop.png") | hasImage -%}
 <section class="band home-proof" aria-labelledby="proof-heading">
   <div class="container flow" style="--flow-space: var(--space-l)">
+    {%- if hofbaAfter %}
     <h2 id="proof-heading">Same instructor. Same 50 years of teaching. <em>New website.</em></h2>
+    {%- else %}
+    <h2 id="proof-heading">Same instructor. Same 50 years of teaching. <em>An old site that hid it.</em></h2>
+    {%- endif %}
     <div class="home-proof__grid">
       <div>
-        {% set compare = { id: "home-compare", label: "Slide to compare Randy's old Wix site with his new one", before: "hofba-before-desktop", after: null, afterMissing: "[NEEDS: HOFBA live URL for the after screenshot]" } %}
+        {%- if hofbaAfter %}
+        {% set compare = { id: "home-compare", label: "Slide to compare Randy's old Wix site with his new one", before: "hofba-before-desktop", after: { image: "/assets/img/work/source/" + hofba.slug + "-desktop.png", alt: "The new " + hofba.client + " website" } } %}
         {% include "partials/before-after.njk" %}
+        {%- else %}
+        {% set annotation = annotations["hofba-before-desktop"] %}{% set pinsSizes = "(min-width: 1280px) 60rem, 100vw" %}
+        {% include "partials/pins.njk" %}
+        {%- endif %}
       </div>
       <div class="home-proof__phone">
         {% set annotation = annotations["hofba-before-mobile"] %}{% set pinsSizes = "(min-width: 1024px) 16rem, 70vw" %}
         {% include "partials/pins.njk" %}
       </div>
     </div>
+    {%- if hofbaAfter %}
     <p class="home-proof__after-notes">[COPY: 3 to 4 specific decisions from the HOFBA build, as pins on the after screenshot]</p>
+    {%- endif %}
     <p><a class="text-link" href="/work/{{ hofba.slug }}/">Read how it came together</a></p>
   </div>
 </section>
@@ -84,7 +96,7 @@ cta: false
       <a class="text-link" href="/work/">All work</a>
     </div>
     <div class="work-grid">
-      {%- for entry in site.work | published %}
+      {%- for entry in site.work | listed %}
       {% include "partials/work-card.njk" %}
       {%- endfor %}
     </div>
@@ -103,7 +115,7 @@ cta: false
 <section class="band meet" aria-labelledby="meet-heading">
   <div class="container meet__inner">
     <div class="meet__photo">
-      <div class="photo-needed" role="img" aria-label="Photo of Justin coming soon"><p>[NEEDS REAL PHOTO: Justin's headshot]</p></div>
+      <img class="portrait" src="/assets/img/brand/justin-couch.jpg" alt="{{ site.business.founder }}, web designer in {{ site.business.city }}" sizes="(min-width: 768px) 16rem, 18rem">
     </div>
     <div class="flow">
       <h2 id="meet-heading">Who you'll be working with</h2>

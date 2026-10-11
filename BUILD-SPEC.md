@@ -398,6 +398,7 @@ Each page lists sections in order with each section's job. **★** marks the pag
    - All five were checked against the live Wix site on October 11, 2026. The site does show a phone number (on Contact and in the footer), so never say email was the only way to reach Randy.
    - Pins on the after: `[COPY: 3 to 4 specific decisions from the HOFBA build]`
    - Link: `Read how it came together` → case study.
+   - Until the HOFBA site is live (decided October 11, 2026): no slider. Home and the case study show the annotated before screenshots only, the H2 ends `An old site that hid it.`, and HOFBA has `listed: false`, so it has no work card. Capturing `src/assets/img/work/source/hall-of-fame-billiard-academy-desktop.png` turns the slider back on automatically. Then set `liveUrl` and remove `listed: false`.
 3. **Sound familiar?** (four lines, left-aligned, large type). *Job:* problem first.
    - H2: `Sound familiar?`
    - `You get more calls from Facebook than from your website.`
@@ -461,6 +462,7 @@ Each page lists sections in order with each section's job. **★** marks the pag
 - Meta: `When you can't pick up, callers get a text in seconds and a way to book. Built for HVAC, plumbing, electrical and roofing.`
 
 1. Notice strip: `ProClientFlow is now part of Couch & Craft. Same service, new name.`
+   - Unsourced benchmark stats from proclientflow.com (27%, $1,200, 85%, 62%) are dropped site-wide (decided October 11, 2026). The blog article is rewritten around counting your own missed calls.
 2. Hero (carried over from proclientflow.com). H1: `Every missed call is a job you already paid for.`
 3. **★ Before/after call board** from proclientflow.com, rebuilt in the new design. Stats render server-side as real text, never animated from 0. Keep the label: benchmarks are vendor-published, directional, not a guarantee. Every stat carries a visible source (publisher and year, linked). A stat with no findable source is dropped and listed in the step report `[JUSTIN TO VERIFY sources]`.
 4. How it works, 3 steps (port from proclientflow.com).
@@ -699,7 +701,7 @@ Accept: 0 critical, 0 serious axe issues. Events visible in GA4 DebugView.
 Commit: `Add analytics events and fix accessibility issues`
 
 **Step 15: Human pass and pre-launch QA**
-Delete `/styleguide/`. Run `npm run check -- --prelaunch`: banned words, em/en dashes and semicolons in **visible text** (Section 0, rule 7), `[COPY:`, `[NEEDS`, `[JUSTIN TO`, `[CLIENT TO`, `lorem` in visible text, and `console.log`, `href="#"`, generator tags in raw output. Then a production build, which fails on any open value. Report every hit.
+Delete `/styleguide/`. Run `npm run check:prelaunch` (after `npm run build`): banned words, em/en dashes and semicolons in **visible text** (Section 0, rule 7), `[COPY:`, `[NEEDS`, `[JUSTIN TO`, `[CLIENT TO`, `lorem` in visible text, and `console.log`, `href="#"`, generator tags in raw output. Then a production build, which fails on any open value. Report every hit.
 Commit: `Human pass and pre-launch cleanup`
 
 ---

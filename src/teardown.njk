@@ -14,12 +14,14 @@ cta: false
 </section>
 
 <section class="band" aria-labelledby="example-heading">
-  <div class="container two-up">
+  <div class="container{% if site.teardown.videoUrl %} two-up{% endif %}">
     <div class="flow">
       <h2 id="example-heading">What a teardown looks like</h2>
-      <p>I open your site the way a customer would, on a phone and on a laptop, and talk through what I see. You get the video and a short list of what to fix first. Do them yourself, hand them to whoever built the site, or ask me.</p>
+      <p class="lead">I open your site the way a customer would, on a phone and on a laptop, and talk through what I see. You get the video and a short list of what to fix first. Do them yourself, hand them to whoever built the site, or ask me.</p>
     </div>
-    <div class="video-needed"><p>[NEEDS: record one example teardown video]</p></div>
+    {%- if site.teardown.videoUrl %}
+    <p><a class="button" href="{{ site.teardown.videoUrl }}" rel="noopener">Watch an example teardown</a></p>
+    {%- endif %}
   </div>
 </section>
 

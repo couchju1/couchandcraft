@@ -15,7 +15,7 @@ layout: layouts/base.njk
       <div><dt>Industry</dt><dd>{{ entry.industry }}</dd></div>
       <div><dt>Where</dt><dd>{{ entry.location }}</dd></div>
       {%- if entry.contact %}<div><dt>Owner</dt><dd>{{ entry.contact }}</dd></div>{% endif %}
-      <div><dt>Live site</dt><dd>{% if entry.liveUrl | isSet %}<a href="{{ entry.liveUrl }}" rel="noopener">{{ entry.liveUrl | hostname }}</a>{% else %}{{ entry.liveUrl | open }}{% endif %}</dd></div>
+      {%- if entry.liveUrl %}<div><dt>Live site</dt><dd>{% if entry.liveUrl | isSet %}<a href="{{ entry.liveUrl }}" rel="noopener">{{ entry.liveUrl | hostname }}</a>{% else %}{{ entry.liveUrl | open }}{% endif %}</dd></div>{% endif %}
     </dl>
     {%- if entry.facts and entry.facts.length %}
     <ul class="case-hero__facts">
@@ -57,11 +57,13 @@ layout: layouts/base.njk
   </div>
 </section>
 
+{%- set hasAfter = ("work/source/" + entry.slug + "-desktop.png") | hasImage -%}
+{%- if not isHofba or hasAfter %}
 <section class="band" aria-labelledby="look-heading">
   <div class="container flow" style="--flow-space: var(--space-l)">
     <h2 id="look-heading">{% if isHofba %}Before and after{% else %}On desktop and on a phone{% endif %}</h2>
     {%- if isHofba %}
-    {% set compare = { id: "case-compare", label: "Slide to compare the old Wix site with the new one", before: "hofba-before-desktop", after: null, afterMissing: "[NEEDS: HOFBA live URL for the after screenshot]", hideNotes: true } %}
+    {% set compare = { id: "case-compare", label: "Slide to compare the old Wix site with the new one", before: "hofba-before-desktop", after: { image: "/assets/img/work/source/" + entry.slug + "-desktop.png", alt: "The new " + entry.client + " website" }, hideNotes: true } %}
     {% include "partials/before-after.njk" %}
     {%- else %}
     {%- set desktopSrc = "work/source/" + entry.slug + "-desktop.png" -%}
@@ -80,6 +82,7 @@ layout: layouts/base.njk
     {%- endif %}
   </div>
 </section>
+{%- endif %}
 
 {%- if entry.results %}
 <section class="band band--white" aria-labelledby="results-heading">

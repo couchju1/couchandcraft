@@ -1,0 +1,19 @@
+{
+  "name": "couchandcraft",
+  "version": "1.0.0",
+  "private": true,
+  "description": "couchandcraft.com, built with Eleventy",
+  "scripts": {
+    "dev": "node scripts/check.js --config && eleventy --serve",
+    "build": "node scripts/check.js --config && eleventy",
+    "build:prod": "node scripts/check.js --config && cross-env ELEVENTY_ENV=production eleventy",
+    "check": "node scripts/check.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "cross-env": "10.1.0"
+  }
+}

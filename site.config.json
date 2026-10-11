@@ -1,0 +1,120 @@
+{
+  "business": {
+    "name": "Couch & Craft",
+    "legalName": "[JUSTIN TO SET]",
+    "founder": "Justin Couch",
+    "descriptor": "Web design · Marketing · Automation",
+    "url": "https://www.couchandcraft.com",
+    "city": "Sioux Falls",
+    "state": "SD",
+    "zip": null,
+    "streetAddress": null,
+    "serviceAreaBusiness": true,
+    "serviceArea": [
+      "Sioux Falls",
+      "Brandon",
+      "Tea",
+      "Harrisburg",
+      "Hartford",
+      "Canton",
+      "Lennox",
+      "Parker",
+      "Crooks",
+      "Renner"
+    ],
+    "formerName": "ProClientFlow",
+    "formerDomain": "proclientflow.com"
+  },
+  "contact": {
+    "phoneDisplay": "[JUSTIN TO SET]",
+    "phoneE164": "[JUSTIN TO SET]",
+    "email": "[JUSTIN TO SET]",
+    "formTo": "[JUSTIN TO SET]",
+    "responseTime": "[JUSTIN TO SET, e.g. one business day]",
+    "hours": "[JUSTIN TO SET]"
+  },
+  "pricing": {
+    "foundationFrom": "[JUSTIN TO SET]",
+    "signatureFrom": "[JUSTIN TO SET]",
+    "signatureTypical": "[JUSTIN TO SET: a dollar figure, about $10,000]",
+    "careMonthly": "[JUSTIN TO SET]",
+    "leadResponseSetup": "[JUSTIN TO SET]",
+    "leadResponseMonthly": "[JUSTIN TO SET]",
+    "paymentTerms": "[JUSTIN TO SET]",
+    "ownershipPolicy": "[JUSTIN TO CONFIRM: client owns domain, site files and accounts]"
+  },
+  "process": [
+    {
+      "step": "A 30-minute call",
+      "weeks": "[JUSTIN TO SET]"
+    },
+    {
+      "step": "I write the words",
+      "weeks": "[JUSTIN TO SET]"
+    },
+    {
+      "step": "You see the design",
+      "weeks": "[JUSTIN TO SET]"
+    },
+    {
+      "step": "Launch, then we track the calls",
+      "weeks": "[JUSTIN TO SET]"
+    }
+  ],
+  "social": {
+    "googleBusinessProfile": null,
+    "facebook": null,
+    "linkedin": null
+  },
+  "analytics": {
+    "ga4": "[JUSTIN TO SET]"
+  },
+  "about": {
+    "showDayJob": false
+  },
+  "work": [
+    {
+      "slug": "hall-of-fame-billiard-academy",
+      "client": "Hall of Fame Billiard Academy",
+      "contact": "Randy Goettlicher",
+      "industry": "Billiards instruction",
+      "location": "Dallas, TX",
+      "liveUrl": "[NEEDS: live URL]",
+      "beforeUrl": "https://randygpool.wixsite.com/randygpool",
+      "permission": true,
+      "quote": null,
+      "results": null
+    },
+    {
+      "slug": "nate-hall-insurance",
+      "client": "Nate Hall Insurance",
+      "industry": "Independent insurance agent",
+      "location": "Hartford, SD",
+      "liveUrl": "https://www.natehallinsurance.com/",
+      "permission": true,
+      "quote": null,
+      "results": null
+    },
+    {
+      "slug": "top-teer-construction",
+      "client": "Top Teer Construction",
+      "industry": "Remodeling",
+      "location": "Sioux Falls, SD",
+      "liveUrl": null,
+      "permission": true,
+      "publish": false,
+      "quote": null,
+      "results": null
+    },
+    {
+      "slug": "playpoolnation",
+      "client": "PlayPoolNation",
+      "industry": "Billiards venue directory (built and run by Justin)",
+      "location": "National",
+      "liveUrl": "https://playpoolnation.com/",
+      "inHouse": true,
+      "quote": null,
+      "results": null
+    }
+  ]
+}

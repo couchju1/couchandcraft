@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: "Thanks | Couch & Craft"
+noindex: true
+cta: false
+crumb: "Thanks"
+breadcrumbs:
+  - title: "Start a project"
+    url: "/start/"
+permalink: /start/thanks/
+---
+<section class="band thanks" aria-labelledby="page-heading" data-conversion="generate_lead">
+  <div class="container flow">
+    <h1 id="page-heading">Got it. I'll be in touch within {{ site.contact.responseTime | open }}.</h1>
+    <p class="lead">Your message is in my inbox. If it's urgent, call me at {% set kind = "phone" %}{% set location = "thanks" %}{% include "partials/contact-link.njk" %}.</p>
+    <p>While you wait, see <a href="/work/">the sites I've built</a> or <a href="/pricing/">what a website costs</a>.</p>
+  </div>
+</section>

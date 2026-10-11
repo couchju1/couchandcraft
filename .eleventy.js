@@ -73,6 +73,7 @@ module.exports = async function (eleventyConfig) {
       { label: "Price", cells: [from(pricing.foundationFrom), from(pricing.signatureFrom)] },
     ];
   });
+  eleventyConfig.addFilter("phpString", (value) => `'${String(value ?? "").replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`);
   eleventyConfig.addFilter("hostname", (url) => new URL(url).hostname.replace(/^www\./, ""));
 
   eleventyConfig.addCollection("caseCopy", (api) => {
@@ -84,7 +85,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/css/*.css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js/*.js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts/*.woff2": "assets/fonts" });
-  eleventyConfig.addPassthroughCopy({ "api/*.php": "api" });
+  eleventyConfig.addPassthroughCopy({ "api/contact.php": "api/contact.php" });
 
   eleventyConfig.addGlobalData("env", isProduction ? "production" : "development");
 

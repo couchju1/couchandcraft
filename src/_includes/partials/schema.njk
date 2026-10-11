@@ -2,4 +2,5 @@
 {% if breadcrumbTrail %}<script type="application/ld+json">{{ breadcrumbTrail | jsonLd | safe }}</script>
 {% endif %}
 {% if service %}<script type="application/ld+json">{{ service | serviceSchema(site) | jsonLd | safe }}</script>
+{% endif %}{% if person %}<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "Person", "name": site.business.founder, "jobTitle": "Web designer", "worksFor": { "@id": site.business.url + "/#business" }, "address": { "@type": "PostalAddress", "addressLocality": site.business.city, "addressRegion": site.business.state, "addressCountry": "US" }, "url": site.business.url + "/about/" } | jsonLd | safe }}</script>
 {% endif %}

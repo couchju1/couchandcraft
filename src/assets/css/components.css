@@ -956,3 +956,41 @@ main > .notice-strip + .page-hero { margin-top: 0; }
 .decisions__item,
 .process__step,
 .how-steps__item { max-width: none; }
+
+.about-intro__inner { display: grid; gap: var(--space-xl); align-items: center; }
+.about-intro__photo { max-width: 18rem; color: var(--slate); }
+.about-intro h1 { max-width: 18ch; }
+@media (min-width: 768px) { .about-intro__inner { grid-template-columns: 16rem 1fr; } }
+
+.promises { padding: 0; list-style: none; display: grid; gap: var(--space-m); }
+.promises__item { max-width: none; padding-left: var(--space-m); border-left: 3px solid var(--gold); font-size: var(--step-1); }
+.promises__item strong { display: block; font-family: var(--font-display); font-size: var(--step-2); }
+
+.wont { display: grid; gap: var(--space-m); }
+.wont__item { display: grid; gap: var(--space-2xs); padding: var(--space-m); border: 1px solid var(--line); border-radius: var(--radius-m); background: var(--white); }
+.wont dt { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; text-decoration: line-through; text-decoration-color: var(--gold); text-decoration-thickness: 3px; }
+.wont dd { margin: 0; }
+@media (min-width: 768px) { .wont { grid-template-columns: 1fr 1fr; } }
+
+.towns { padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+.towns li { padding: var(--space-3xs) var(--space-s); border: 1px solid var(--line); border-radius: 999px; background: var(--white); }
+
+.start__inner { display: grid; gap: var(--space-xl); align-items: start; }
+.start__subhead { font-size: var(--step-2); }
+.next-steps { padding-left: var(--space-m); display: grid; gap: var(--space-2xs); }
+@media (min-width: 1024px) { .start__inner { grid-template-columns: 1fr 1.4fr; } }
+
+.video-needed {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  padding: var(--space-l);
+  border: 2px dashed var(--line);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  color: var(--slate);
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: var(--step--1);
+  text-align: center;
+}

@@ -75,6 +75,12 @@ module.exports = async function (eleventyConfig) {
   });
   eleventyConfig.addFilter("hostname", (url) => new URL(url).hostname.replace(/^www\./, ""));
 
+  eleventyConfig.addCollection("caseCopy", (api) => {
+    const copy = {};
+    for (const item of api.getFilteredByGlob("src/work/_copy/*.md")) copy[item.fileSlug] = item.data;
+    return copy;
+  });
+
   eleventyConfig.addPassthroughCopy({ "src/assets/css/*.css": "assets/css" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js/*.js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts/*.woff2": "assets/fonts" });

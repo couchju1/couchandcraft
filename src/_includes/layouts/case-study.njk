@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+---
+{%- set copy = collections.caseCopy[entry.slug] or {} -%}
+{%- set published = site.work | published -%}
+{%- set nextEntry = null -%}
+{%- for item in published -%}{%- if item.slug == entry.slug -%}{%- set nextEntry = published[loop.index] if loop.index < published.length else published[0] -%}{%- endif -%}{%- endfor -%}
+{%- set isHofba = entry.slug == "hall-of-fame-billiard-academy" -%}
+
+<section class="page-hero band--navy case-hero" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">{% if entry.inHouse %}Built and run by me{% else %}Case study{% endif %}</p>
+    <h1 id="page-heading">{{ entry.client }}</h1>
+    <dl class="case-hero__meta">
+      <div><dt>Industry</dt><dd>{{ entry.industry }}</dd></div>
+      <div><dt>Where</dt><dd>{{ entry.location }}</dd></div>
+      {%- if entry.contact %}<div><dt>Owner</dt><dd>{{ entry.contact }}</dd></div>{% endif %}
+      <div><dt>Live site</dt><dd>{% if entry.liveUrl | isSet %}<a href="{{ entry.liveUrl }}" rel="noopener">{{ entry.liveUrl | hostname }}</a>{% else %}{{ entry.liveUrl | open }}{% endif %}</dd></div>
+    </dl>
+    {%- if entry.facts and entry.facts.length %}
+    <ul class="case-hero__facts">
+      {%- for fact in entry.facts %}<li>{{ fact | open }}</li>{% endfor %}
+    </ul>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="band" aria-labelledby="problem-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <div class="flow">
+      <h2 id="problem-heading">{% if entry.inHouse %}Why I built it{% else %}The problem{% endif %}</h2>
+      <p class="lead">{{ copy.problem | open }}</p>
+    </div>
+    {%- if isHofba %}
+    <div class="home-proof__grid">
+      <div>
+        {% set annotation = annotations["hofba-before-desktop"] %}{% set pinsSizes = "(min-width: 1280px) 60rem, 100vw" %}
+        {% include "partials/pins.njk" %}
+      </div>
+      <div class="home-proof__phone">
+        {% set annotation = annotations["hofba-before-mobile"] %}{% set pinsSizes = "(min-width: 1024px) 16rem, 70vw" %}
+        {% include "partials/pins.njk" %}
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="built-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="built-heading">What I built, and why</h2>
+    <ol class="decisions">
+      {%- for d in copy.decisions %}
+      <li class="decisions__item"><h3>{{ d.title | open }}</h3><p>{{ d.reason | open }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="look-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="look-heading">{% if isHofba %}Before and after{% else %}On desktop and on a phone{% endif %}</h2>
+    {%- if isHofba %}
+    {% set compare = { id: "case-compare", label: "Slide to compare the old Wix site with the new one", before: "hofba-before-desktop", after: null, afterMissing: "[NEEDS: HOFBA live URL for the after screenshot]", hideNotes: true } %}
+    {% include "partials/before-after.njk" %}
+    {%- else %}
+    {%- set desktopSrc = "work/source/" + entry.slug + "-desktop.png" -%}
+    {%- set mobileSrc = "work/source/" + entry.slug + "-mobile.png" -%}
+    <div class="devices">
+      <div class="devices__desktop">
+        {%- if desktopSrc | hasImage %}<img src="/assets/img/{{ desktopSrc }}" alt="{{ entry.client }} website on desktop" sizes="(min-width: 1024px) 50rem, 100vw">
+        {%- else %}<div class="work-card__placeholder"><p>[NEEDS: {{ entry.client }} desktop screenshot]</p></div>{% endif %}
+      </div>
+      <div class="devices__phone">
+        {%- if mobileSrc | hasImage %}<img src="/assets/img/{{ mobileSrc }}" alt="{{ entry.client }} website on a phone" sizes="(min-width: 1024px) 16rem, 50vw">
+        {%- else %}<div class="work-card__placeholder"><p>[NEEDS: {{ entry.client }} phone screenshot]</p></div>{% endif %}
+      </div>
+    </div>
+    <p class="review-note">[COPY: pins for these screenshots, 3 or 4 specific details with a reason each]</p>
+    {%- endif %}
+  </div>
+</section>
+
+{%- if entry.results %}
+<section class="band band--white" aria-labelledby="results-heading">
+  <div class="container flow">
+    <h2 id="results-heading">Results</h2>
+    <p class="lead">{{ entry.results }}</p>
+  </div>
+</section>
+{%- endif %}
+
+{%- if entry.quote %}
+<section class="band" aria-label="What {{ entry.contact or entry.client }} said">
+  <figure class="container case-quote">
+    <blockquote><p>{{ entry.quote }}</p></blockquote>
+    <figcaption>{{ entry.contact or entry.client }}, {{ entry.client }}</figcaption>
+  </figure>
+</section>
+{%- endif %}
+
+<nav class="band band--white related" aria-label="More work">
+  <div class="container related__inner">
+    {%- if nextEntry and nextEntry.slug != entry.slug %}<a class="related__link" href="/work/{{ nextEntry.slug }}/">Next: {{ nextEntry.client }}</a>{% endif %}
+    {%- if entry.industryPage %}<a class="related__link" href="{{ entry.industryPage }}">More on {{ "insurance agent" if "insurance" in entry.industryPage else "contractor" }} websites</a>{% endif %}
+    <a class="related__link" href="/work/">All work</a>
+  </div>
+</nav>

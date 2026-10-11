@@ -875,3 +875,27 @@ main > .notice-strip + .page-hero { margin-top: 0; }
 @media (min-width: 768px) { .two-up { grid-template-columns: 1fr 1fr; } }
 .plain-list { padding-left: var(--space-m); display: grid; gap: var(--space-2xs); }
 .receipt__item { min-width: 0; }
+
+.case-hero__meta { display: flex; flex-wrap: wrap; gap: var(--space-s) var(--space-xl); }
+.case-hero__meta dt { font-family: var(--font-label); font-weight: 700; font-size: var(--step--1); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--gold); }
+.case-hero__meta dd { margin: 0; }
+.case-hero__meta a { color: var(--link-on-navy); }
+.case-hero__facts { padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2xs); }
+.case-hero__facts li { padding: var(--space-3xs) var(--space-xs); border: 1px solid rgb(248 247 242 / 0.3); border-radius: 999px; font-size: var(--step--1); }
+
+.decisions { padding: 0; list-style: none; display: grid; gap: var(--space-l); counter-reset: decision; }
+.decisions__item { display: grid; gap: var(--space-2xs); padding-top: var(--space-m); border-top: 1px solid var(--line); counter-increment: decision; }
+.decisions__item::before { content: counter(decision, decimal-leading-zero); color: var(--gold-text); font-family: var(--font-label); font-weight: 700; font-size: var(--step--1); letter-spacing: var(--tracking-label); }
+.decisions__item h3 { font-size: var(--step-2); }
+@media (min-width: 768px) { .decisions { grid-template-columns: 1fr 1fr; column-gap: var(--space-xl); } }
+
+.devices { display: grid; gap: var(--space-l); align-items: end; }
+.devices img,
+.devices .work-card__placeholder { border: 1px solid var(--line); border-radius: var(--radius-s); box-shadow: var(--shadow-2); width: 100%; }
+.devices__phone { max-width: 14rem; }
+.devices__phone img { border-radius: var(--radius-m); }
+@media (min-width: 768px) { .devices { grid-template-columns: minmax(0, 1fr) 14rem; } }
+
+.case-quote { display: grid; gap: var(--space-s); }
+.case-quote blockquote { margin: 0; padding-left: var(--space-m); border-left: 4px solid var(--gold); font-family: var(--font-display); font-size: var(--step-3); line-height: 1.25; }
+.case-quote figcaption { color: var(--slate); }

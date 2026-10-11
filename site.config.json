@@ -198,7 +198,13 @@
       "beforeUrl": "https://randygpool.wixsite.com/randygpool",
       "permission": true,
       "quote": null,
-      "results": null
+      "results": null,
+      "facts": [
+        "PBIA Master Instructor",
+        "Teaching for 50+ years",
+        "Lessons in Dallas or on the road"
+      ],
+      "industryPage": null
     },
     {
       "slug": "nate-hall-insurance",
@@ -208,7 +214,9 @@
       "liveUrl": "https://www.natehallinsurance.com/",
       "permission": true,
       "quote": null,
-      "results": null
+      "results": null,
+      "facts": [],
+      "industryPage": "/websites-for-insurance-agents/"
     },
     {
       "slug": "top-teer-construction",
@@ -219,7 +227,9 @@
       "permission": true,
       "publish": false,
       "quote": null,
-      "results": null
+      "results": null,
+      "facts": [],
+      "industryPage": "/websites-for-contractors/"
     },
     {
       "slug": "playpoolnation",
@@ -229,7 +239,11 @@
       "liveUrl": "https://playpoolnation.com/",
       "inHouse": true,
       "quote": null,
-      "results": null
+      "results": null,
+      "facts": [
+        "[JUSTIN TO VERIFY: 107 venue listings at last count]"
+      ],
+      "industryPage": null
     }
   ]
 }

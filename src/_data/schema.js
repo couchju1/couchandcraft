@@ -12,6 +12,7 @@ module.exports = () => {
     name: business.name,
     url: home,
     description: business.descriptor,
+    image: `${home}assets/img/og/default.jpg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: business.city,

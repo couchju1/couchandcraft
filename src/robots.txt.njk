@@ -1,0 +1,8 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+Disallow: /api/
+
+Sitemap: {{ "/sitemap.xml" | absoluteUrl(site.business.url) }}

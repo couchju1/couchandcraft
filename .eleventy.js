@@ -74,6 +74,12 @@ module.exports = async function (eleventyConfig) {
     ];
   });
   eleventyConfig.addFilter("phpString", (value) => `'${String(value ?? "").replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`);
+  eleventyConfig.addFilter("sitemapPages", (items) =>
+    items
+      .filter((item) => item.url && item.outputPath && item.outputPath.endsWith(".html"))
+      .filter((item) => !item.data.noindex && item.data.sitemap !== false)
+      .sort((a, b) => a.url.localeCompare(b.url))
+  );
   eleventyConfig.addFilter("hostname", (url) => new URL(url).hostname.replace(/^www\./, ""));
 
   eleventyConfig.amendLibrary("md", (md) => {
@@ -94,6 +100,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/js/*.js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts/*.woff2": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({ "api/contact.php": "api/contact.php" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/og/*.jpg": "assets/img/og" });
 
   eleventyConfig.addGlobalData("env", isProduction ? "production" : "development");
 

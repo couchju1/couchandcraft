@@ -1053,3 +1053,4 @@ main > .notice-strip + .page-hero { margin-top: 0; }
 .product__buy { display: flex; align-items: center; justify-content: space-between; gap: var(--space-s); padding-top: var(--space-s); border-top: 1px dashed var(--line); }
 .product__price { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; }
 .product__soon { color: var(--slate); font-size: var(--step--1); font-weight: 600; }
+.article-meta-light { color: var(--slate); font-size: var(--step--1); }

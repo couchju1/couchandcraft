@@ -27,5 +27,9 @@ Optional: add yourself as a required reviewer on the `production` environment, s
 
 ## Notes
 - The upload only removes files it uploaded before, so it won't touch other files in `public_html`.
-- The production `.htaccess` comes in Step 13.
+- `dist/.htaccess` is built from `src/htaccess.njk`: apex to `www`, trailing slashes, a real 404, caching and security headers. The content security policy allows the one inline script by its hash, worked out at build time. HTTPS itself is forced by Hostinger, so turn on "Force HTTPS" for couchandcraft.com in hPanel.
+- HSTS starts at `max-age=300`. Raise it to `31536000` in `src/htaccess.njk` once the live site checks out.
+
+## proclientflow.com redirects
+`redirects/proclientflow.htaccess` is not deployed by the workflow. When proclientflow.com moves to Hostinger as an addon domain, upload it as `.htaccess` in that domain's folder. Leave "Force HTTPS" off for proclientflow.com in hPanel, so every old URL reaches couchandcraft.com in one 301.
 - The form handler's mail settings (`contact-config.php`) live on the server, one level above the web folder. They're never deployed from the repo (Step 11).

@@ -675,7 +675,7 @@ Commit: `Build industry pages`
 
 **Step 10: Deploy pipeline and staging**
 GitHub Action that runs `npm run check` and `npm run build`, then deploys `dist/` to the staging subdomain (and to production on a manual trigger). Credentials in GitHub Actions secrets only. Staging is `noindex` (header plus robots) and password-protected.
-Accept: a push to `main` updates staging. Production deploy is a manual run.
+Accept: a push to `main` updates staging. Production deploy is a manual run. Setup steps and secrets are in `DEPLOY.md`. Staging gets its own `.htaccess` (basic auth plus `X-Robots-Tag: noindex, nofollow`), `.htpasswd` and a disallow-all `robots.txt`, written at deploy time. The production `.htaccess` from Step 13 must not be written into staging builds.
 Commit: `Add deploy pipeline and staging`
 
 **Step 11: About, Start, Thanks, Teardown, form handler**

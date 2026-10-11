@@ -38,5 +38,68 @@
         "text": "On a phone, the page ran off the side of the screen"
       }
     ]
+  },
+  "nate-anatomy-hero": {
+    "id": "nate-anatomy-hero",
+    "image": "/assets/img/work/source/nate-hall-insurance-desktop.png",
+    "alt": "The top of the Nate Hall Insurance homepage, with his photo, name, intro and a Call Now button",
+    "pins": [
+      {
+        "x": 35.5,
+        "y": 22,
+        "text": "Who he is, what kind of agent and where, before anything else."
+      },
+      {
+        "x": 35.5,
+        "y": 43,
+        "text": "The first paragraph explains what independent means. He works for you, not for one insurance company."
+      },
+      {
+        "x": 35.5,
+        "y": 57,
+        "text": "Call Now is the first button, and it dials his number from a phone."
+      },
+      {
+        "x": 39,
+        "y": 76,
+        "text": "Every line he sells, listed in plain words."
+      }
+    ]
+  },
+  "nate-anatomy-footer": {
+    "id": "nate-anatomy-footer",
+    "start": 5,
+    "image": "/assets/img/work/source/nate-hall-insurance-footer.png",
+    "alt": "The Nate Hall Insurance footer, with licensing states and a carrier disclaimer",
+    "pins": [
+      {
+        "x": 4.5,
+        "y": 40,
+        "text": "The states he's licensed in, on every page."
+      },
+      {
+        "x": 4.5,
+        "y": 65,
+        "text": "A plain disclaimer: products come through various carriers, not every product is sold in every state, and the site isn't an offer of coverage."
+      }
+    ]
+  },
+  "nate-anatomy-form": {
+    "id": "nate-anatomy-form",
+    "start": 7,
+    "image": "/assets/img/work/source/nate-hall-insurance-form.png",
+    "alt": "The Nate Hall Insurance quote request form",
+    "pins": [
+      {
+        "x": 4,
+        "y": 5.5,
+        "text": "A note at the top asks people not to send health details or policy numbers."
+      },
+      {
+        "x": 4,
+        "y": 41,
+        "text": "Checkboxes for the kind of coverage, so nobody types a health history into a comment box."
+      }
+    ]
   }
 }

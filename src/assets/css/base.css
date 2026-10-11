@@ -65,6 +65,7 @@ h1, h2, h3, h4 {
   font-weight: 600;
   line-height: var(--leading-tight);
   text-wrap: balance;
+  overflow-wrap: break-word;
   font-optical-sizing: auto;
 }
 h1 { font-size: var(--step-5); }

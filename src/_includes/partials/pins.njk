@@ -1,0 +1,17 @@
+{#- Expects: annotation (from annotations.json). Optional: pinsSizes, pinsEager -#}
+{%- set pinStart = annotation.start or 1 -%}
+<figure class="pins" id="{{ annotation.id }}">
+  <div class="pins__media">
+    <img src="{{ annotation.image }}" alt="{{ annotation.alt }}" sizes="{{ pinsSizes or '(min-width: 1280px) 76rem, 100vw' }}"{% if pinsEager %} loading="eager" fetchpriority="high"{% endif %}>
+    {%- for pin in annotation.pins %}
+    <a class="pins__marker" href="#{{ annotation.id }}-note-{{ loop.index0 + pinStart }}" style="--x: {{ pin.x }}%; --y: {{ pin.y }}%" aria-label="Note {{ loop.index0 + pinStart }}" data-pin="{{ annotation.id }}-{{ loop.index0 + pinStart }}">{{ loop.index0 + pinStart }}</a>
+    {%- endfor %}
+  </div>
+  <figcaption>
+    <ol class="pins__notes" start="{{ pinStart }}">
+      {%- for pin in annotation.pins %}
+      <li id="{{ annotation.id }}-note-{{ loop.index0 + pinStart }}" class="pins__note" data-pin="{{ annotation.id }}-{{ loop.index0 + pinStart }}"><span class="pins__num" aria-hidden="true">{{ loop.index0 + pinStart }}</span><span>{{ pin.text }}</span></li>
+      {%- endfor %}
+    </ol>
+  </figcaption>
+</figure>

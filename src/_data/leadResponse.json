@@ -1,0 +1,35 @@
+{
+  "trades": ["HVAC", "Plumbing", "Electrical", "Roofing"],
+  "before": [
+    { "who": "Unknown caller", "what": "AC dead, 94° out", "when": "Missed · 7:42 PM" },
+    { "who": "(555) 013-2290", "what": "Burst pipe, voicemail", "when": "Missed · 9:15 PM" },
+    { "who": "Web form lead", "what": "Roof leak quote", "when": "Missed · Sat 11:03 AM" }
+  ],
+  "after": [
+    { "who": "Maria R.", "what": "AC repair, emergency", "when": "Booked · Tue 8:00 AM" },
+    { "who": "Dan K.", "what": "Burst pipe, on-call tech", "when": "Booked · Tonight 10:00 PM" },
+    { "who": "Priya S.", "what": "Roof inspection", "when": "Booked · Mon 1:30 PM" }
+  ],
+  "stats": [
+    { "value": "27%", "label": "of inbound calls go unanswered", "source": null, "sourceUrl": null },
+    { "value": "$1,200", "label": "average value of one missed sales call", "source": null, "sourceUrl": null },
+    { "value": "85%", "label": "of voicemail callers never call back", "source": null, "sourceUrl": null },
+    { "value": "62%", "label": "of leads convert when answered within 2 minutes", "source": null, "sourceUrl": null }
+  ],
+  "steps": [
+    { "title": "A call comes in. You can't pick up.", "text": "You're on a roof or under a sink." },
+    { "title": "The caller gets a text back.", "text": "Within seconds, they get a text that asks what the job is, how urgent it is and where." },
+    { "title": "The job lands on your calendar.", "text": "Qualified jobs get booked for you. Emergencies go straight to whoever's on call." }
+  ],
+  "tradeRows": [
+    { "trade": "HVAC", "text": "Emergency triage, follow-up on replacement leads and financing questions." },
+    { "trade": "Plumbing", "text": "A burst pipe at 2 AM gets answered and routed to your on-call tech." },
+    { "trade": "Electrical", "text": "Sorts out job type, urgency and location before you roll a truck." },
+    { "trade": "Roofing", "text": "Storm-surge leads get answered, followed up and booked for an inspection." }
+  ],
+  "compare": [
+    { "title": "Couch & Craft vs Smith.ai", "url": "/compare/smith-ai-contractor-call-answering/" },
+    { "title": "Couch & Craft vs Goodcall and Rosie", "url": "/compare/goodcall-rosie-ai-receptionist-home-services/" },
+    { "title": "Couch & Craft vs Jobber and Housecall Pro receptionists", "url": "/compare/jobber-housecall-pro-ai-receptionist/" }
+  ]
+}

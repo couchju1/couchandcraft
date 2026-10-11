@@ -1,0 +1,23 @@
+{
+  "name": "couchandcraft",
+  "version": "1.0.0",
+  "private": true,
+  "description": "couchandcraft.com, built with Eleventy",
+  "scripts": {
+    "dev": "node scripts/check.js --config && eleventy --serve",
+    "build": "node scripts/check.js --config && eleventy",
+    "build:prod": "node scripts/check.js --config && cross-env ELEVENTY_ENV=production eleventy",
+    "check": "node scripts/check.js",
+    "test:a11y": "node scripts/a11y.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "@11ty/eleventy-img": "7.0.0",
+    "axe-core": "4.14.0",
+    "cross-env": "10.1.0",
+    "playwright": "1.56.1"
+  }
+}

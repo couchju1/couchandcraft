@@ -1,0 +1,24 @@
+{
+  "problems": [
+    "My site looks outdated",
+    "It doesn't bring in calls",
+    "I don't have a site",
+    "I need help with Google",
+    "I'm missing calls",
+    "Something else"
+  ],
+  "project": [
+    { "name": "name", "label": "Name", "required": true, "autocomplete": "name", "requiredMsg": "Enter your name" },
+    { "name": "business", "label": "Business name", "required": true, "autocomplete": "organization", "requiredMsg": "Enter your business name" },
+    { "name": "email", "label": "Email", "type": "email", "required": true, "autocomplete": "email", "requiredMsg": "Enter your email address", "invalidMsg": "Enter an email address like name@example.com" },
+    { "name": "phone", "label": "Phone", "type": "tel", "autocomplete": "tel", "invalidMsg": "Enter a 10-digit phone number, like 605 555 0123" },
+    { "name": "website", "label": "Current website", "type": "url", "autocomplete": "url", "hint": "Leave blank if you don't have one yet.", "invalidMsg": "Enter a web address like example.com" },
+    { "name": "problem", "label": "What's not working?", "type": "select", "options": "problems" },
+    { "name": "teardown", "label": "Send me a free teardown of my current site", "type": "checkbox" },
+    { "name": "message", "label": "Anything else I should know?", "type": "textarea" }
+  ],
+  "teardown": [
+    { "name": "website", "label": "Your website", "type": "url", "required": true, "autocomplete": "url", "requiredMsg": "Enter your website address", "invalidMsg": "Enter a web address like example.com" },
+    { "name": "email", "label": "Where should I send the video?", "type": "email", "required": true, "autocomplete": "email", "requiredMsg": "Enter your email address", "invalidMsg": "Enter an email address like name@example.com" }
+  ]
+}

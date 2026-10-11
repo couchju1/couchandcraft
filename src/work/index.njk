@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: "Web Design Portfolio | Couch & Craft, Sioux Falls"
+description: "Websites I've built for service businesses around Sioux Falls, with what changed and why I made each call."
+crumb: "Work"
+---
+<section class="band work-index" aria-labelledby="page-heading">
+  <div class="container flow" style="--flow-space: var(--space-xl)">
+    <div class="flow">
+      <h1 id="page-heading">Sites I've built</h1>
+      <p class="lead">Real businesses, real screenshots. Each one has the story of what was wrong and what I changed.</p>
+    </div>
+    {%- set cardLevel = 2 %}
+    <div class="work-grid">
+      {%- for entry in site.work | published %}
+      {% include "partials/work-card.njk" %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>

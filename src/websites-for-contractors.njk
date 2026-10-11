@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+title: "Contractor Website Design, Sioux Falls | Couch & Craft"
+description: "Websites for Sioux Falls contractors. Show your best projects before the estimate and make it easy for people to call you."
+crumb: "Websites for Contractors"
+---
+{%- set topTeer = site.work | findBySlug("top-teer-construction") -%}
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">For contractors and trades</p>
+    <h1 id="page-heading">Websites for contractors around {{ site.business.city }}.</h1>
+    <p class="page-hero__sub">Your crew does good work. Your site should show it before the estimate.</p>
+    <p class="hero__actions">
+      <a class="button button--gold" href="/start/" data-track="cta_click" data-label="contractors-hero">Start a project</a>
+      <a class="button button--secondary" href="/teardown/">Get a free teardown</a>
+    </p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="needs-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="needs-heading">What a contractor site has to do</h2>
+    <ol class="needs">
+      <li class="needs__item">
+        <h3>Show the work</h3>
+        <p>Most people hiring a contractor have never met you. A gallery of finished jobs, with the town and the kind of job, does more than any paragraph about quality. Phone photos are fine if they're sharp and well lit.</p>
+      </li>
+      <li class="needs__item">
+        <h3>Say where you'll drive</h3>
+        <p>If you'll take a deck in Harrisburg but not a bathroom in Canton, say so. A clear service area cuts calls you'd turn down anyway and helps Google show you to the right people.</p>
+      </li>
+      <li class="needs__item">
+        <h3>Make the quote easy to ask for</h3>
+        <p>A phone number that dials when tapped, and a form short enough to fill out from a driveway. Name, phone, town and what the job is. You can ask the rest on the call.</p>
+      </li>
+      <li class="needs__item">
+        <h3>Use real reviews, when you have them</h3>
+        <p>A few real reviews with first names beat a wall of five stars with no names. If you don't have any yet, leave the section off and start asking after every job.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="anatomy-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <div class="flow">
+      <h2 id="anatomy-heading">Anatomy of a contractor homepage</h2>
+      <p>{% if topTeer.publish %}How I laid out the {{ topTeer.client }} site, and why.{% else %}Here's the layout I start from. Every business changes it, but these six pieces almost always stay.{% endif %}</p>
+    </div>
+    {% include "partials/wireframe-contractor.njk" %}
+  </div>
+</section>
+
+<div class="band">
+  <div class="container">
+    {%- set faqs = [
+      { q: "I get most of my work from referrals. Do I need a website?", a: "<p>Referrals still look you up. Someone hears your name from a neighbor, searches it, and decides in a few seconds whether to call. The site is there for that moment.</p>" },
+      { q: "Can you use photos from my phone?", a: "<p>Usually, yes. Sharp phone photos of real jobs beat stock photos. If you don't have many, start taking a few at the end of every job.</p>" },
+      { q: "What does it cost?", a: "<p>Websites start at " + (site.pricing.foundationFrom | open) + ". <a href=\"/pricing/\">See the full pricing</a>.</p>" }
+    ] -%}
+    {% set faqId = "contractors-faq" %}
+    {% include "partials/faq.njk" %}
+  </div>
+</div>
+
+<section class="band band--white related" aria-label="Keep reading">
+  <div class="container related__inner">
+    <a class="related__link" href="/web-design/">How I build websites</a>
+    <a class="related__link" href="/lead-response/">Answer the calls you miss on a job</a>
+    <a class="related__link" href="/work/">See the sites I've built</a>
+  </div>
+</section>

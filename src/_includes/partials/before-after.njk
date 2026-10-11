@@ -1,0 +1,30 @@
+{#- Expects: compare = { id, label, before: annotation key, after: { image, alt } or null, afterMissing } -#}
+{%- set beforeNote = annotations[compare.before] -%}
+<div class="before-after" data-before-after id="{{ compare.id }}">
+  <div class="before-after__frame" style="--position: 50%">
+    <div class="before-after__layer before-after__layer--after">
+      {%- if compare.after and compare.after.image %}
+      <img src="{{ compare.after.image }}" alt="{{ compare.after.alt }}" sizes="(min-width: 1280px) 76rem, 100vw">
+      {%- else %}
+      <div class="before-after__missing"><p>{{ compare.afterMissing or "[NEEDS: after screenshot]" }}</p></div>
+      {%- endif %}
+      <span class="before-after__tag before-after__tag--after" aria-hidden="true">After</span>
+    </div>
+    <div class="before-after__layer before-after__layer--before">
+      <img src="{{ beforeNote.image }}" alt="{{ beforeNote.alt }}" sizes="(min-width: 1280px) 76rem, 100vw">
+      {%- for pin in beforeNote.pins %}
+      <a class="pins__marker" href="#{{ (beforeNote.id if compare.hideNotes else compare.id) }}-note-{{ loop.index }}" style="--x: {{ pin.x }}%; --y: {{ pin.y }}%" aria-label="Note {{ loop.index }}" data-pin="{{ compare.id }}-{{ loop.index }}">{{ loop.index }}</a>
+      {%- endfor %}
+      <span class="before-after__tag before-after__tag--before" aria-hidden="true">Before</span>
+    </div>
+    <span class="before-after__handle" aria-hidden="true"></span>
+    <input class="before-after__range" type="range" min="0" max="100" step="1" value="50" aria-label="{{ compare.label }}" aria-valuetext="Showing 50% before, 50% after" data-track="before_after_interact">
+  </div>
+  {%- if not compare.hideNotes %}
+  <ol class="pins__notes">
+    {%- for pin in beforeNote.pins %}
+    <li id="{{ compare.id }}-note-{{ loop.index }}" class="pins__note" data-pin="{{ compare.id }}-{{ loop.index }}"><span class="pins__num" aria-hidden="true">{{ loop.index }}</span><span>{{ pin.text }}</span></li>
+    {%- endfor %}
+  </ol>
+  {%- endif %}
+</div>

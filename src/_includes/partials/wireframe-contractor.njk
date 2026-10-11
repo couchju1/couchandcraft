@@ -1,0 +1,28 @@
+{%- set wfNotes = [
+  "Your phone number in the header, tap-to-call on a phone.",
+  "A real job photo up top, and one button that asks for a quote.",
+  "The towns you work in, written out. It's how Google matches you to \"remodeler in Tea.\"",
+  "Finished projects, with the town and the type of job under each one.",
+  "Reviews, but only real ones, with names, once you have them.",
+  "A short quote form. Name, phone, town and what the job is."
+] -%}
+<figure class="wireframe" id="contractor-anatomy">
+  <div class="wireframe__page" aria-hidden="true">
+    <div class="wireframe__bar"><span class="wireframe__logo">Your Company</span><span class="wireframe__phone">(605) 555-0123</span><span class="pins__marker" style="--x: 74%; --y: 50%">1</span></div>
+    <div class="wireframe__hero"><span class="wireframe__photo">Job photo</span><span class="wireframe__h">Kitchens and baths in Sioux Falls</span><span class="wireframe__btn">Get a quote</span><span class="pins__marker" style="--x: 6%; --y: 22%">2</span></div>
+    <div class="wireframe__area">Sioux Falls · Brandon · Tea · Harrisburg · Hartford<span class="pins__marker" style="--x: 3%; --y: 50%">3</span></div>
+    <div class="wireframe__gallery"><span></span><span></span><span></span><span></span><span class="pins__marker" style="--x: 3%; --y: 18%">4</span></div>
+    <div class="wireframe__row">
+      <div class="wireframe__reviews"><span></span><span></span><span class="pins__marker" style="--x: 6%; --y: 20%">5</span></div>
+      <div class="wireframe__form"><span></span><span></span><span></span><span class="wireframe__btn">Send</span><span class="pins__marker" style="--x: 8%; --y: 12%">6</span></div>
+    </div>
+  </div>
+  <figcaption>
+    <p class="wireframe__label">A sample layout, not a real client site.</p>
+    <ol class="pins__notes">
+      {%- for note in wfNotes %}
+      <li class="pins__note"><span class="pins__num" aria-hidden="true">{{ loop.index }}</span><span>{{ note }}</span></li>
+      {%- endfor %}
+    </ol>
+  </figcaption>
+</figure>

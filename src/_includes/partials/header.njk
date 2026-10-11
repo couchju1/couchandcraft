@@ -1,0 +1,17 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="/">{% include "partials/logo.njk" %}</a>
+    <nav class="site-nav" aria-label="Main">
+      <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="site-nav__toggle-icon" aria-hidden="true"></span>Menu
+      </button>
+      <ul class="site-nav__menu" id="site-menu">
+        {%- for item in nav.primary %}
+        <li><a class="site-nav__link" href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {%- endfor %}
+        <li class="site-nav__cta"><a class="button" href="{{ nav.cta.url }}" data-track="cta_click" data-label="header">{{ nav.cta.title }}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

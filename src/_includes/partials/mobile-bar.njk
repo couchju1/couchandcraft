@@ -1,0 +1,6 @@
+<nav class="mobile-bar" data-mobile-bar aria-label="Quick actions">
+  {%- if site.contact.phoneE164 | isSet %}
+  <a class="button button--secondary mobile-bar__call" href="tel:{{ site.contact.phoneE164 }}" data-track="phone_click" data-location="mobile-bar">Call</a>
+  {%- endif %}
+  <a class="button mobile-bar__start" href="{{ nav.cta.url }}" data-track="cta_click" data-label="mobile-bar">{{ nav.cta.title }}</a>
+</nav>

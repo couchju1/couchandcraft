@@ -1,0 +1,28 @@
+{#- Expects: form = { id, type ("project" | "teardown" | "lead-response"), submitLabel, preselect } -#}
+{%- set formId = form.id or "project-form" -%}
+{%- set fieldSet = forms.teardown if form.type == "teardown" else forms.project -%}
+<form class="form" id="{{ formId }}" action="/api/contact.php" method="post" novalidate data-form>
+  <div class="form__errors" id="{{ formId }}-errors" tabindex="-1" hidden aria-labelledby="{{ formId }}-errors-title">
+    <h3 class="form__errors-title" id="{{ formId }}-errors-title">Check these and try again</h3>
+    <ul class="form__errors-list"></ul>
+  </div>
+
+  <input type="hidden" name="form_type" value="{{ form.type or 'project' }}">
+  <input type="hidden" name="started" value="" data-started>
+  <div class="form__trap" aria-hidden="true">
+    <label for="{{ formId }}-fax">Leave this field empty</label>
+    <input type="text" id="{{ formId }}-fax" name="fax" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="form__fields">
+    {%- for field in fieldSet %}
+    {%- set f = field %}
+    {%- if field.options == "problems" %}{% set f = { name: field.name, label: field.label, type: field.type, options: forms.problems, value: form.preselect } %}{% endif %}
+    {% include "partials/field.njk" %}
+    {%- endfor %}
+  </div>
+
+  <p class="form__actions">
+    <button class="button" type="submit" data-submit>{{ form.submitLabel or "Send it to Justin" }}</button>
+  </p>
+</form>

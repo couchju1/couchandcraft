@@ -1,0 +1,21 @@
+---js
+{
+  layout: "layouts/case-study.njk",
+  pagination: {
+    data: "site.work",
+    size: 1,
+    alias: "entry",
+    before: (work) => work.filter((entry) => entry.publish !== false),
+  },
+  permalink: (data) => `/work/${data.entry.slug}/`,
+  breadcrumbs: [{ title: "Work", url: "/work/" }],
+  eleventyComputed: {
+    title: (data) => `${data.entry.client} Website | Couch & Craft`,
+    crumb: (data) => data.entry.client,
+    description: (data) =>
+      data.entry.inHouse
+        ? `${data.entry.client} is a ${data.entry.industry.replace(/ \(.*\)$/, "").toLowerCase()} I built and run myself. Here's how it's put together.`
+        : `The website I built for ${data.entry.client}, ${data.entry.industry.toLowerCase()} in ${data.entry.location}. What was wrong, what I changed and why.`,
+  },
+}
+---

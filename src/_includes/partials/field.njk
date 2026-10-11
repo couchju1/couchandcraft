@@ -1,0 +1,28 @@
+{#- Expects: f = { name, label, type, required, autocomplete, hint, options, value, requiredMsg, invalidMsg, inputmode } and formId -#}
+{%- set fid = formId + "-" + f.name -%}
+{%- if f.type == "checkbox" %}
+<div class="field field--checkbox" data-field>
+  <p class="field__error" id="{{ fid }}-error" hidden></p>
+  <input class="field__checkbox" type="checkbox" id="{{ fid }}" name="{{ f.name }}" value="yes"{% if f.checked %} checked{% endif %}>
+  <label class="field__label" for="{{ fid }}">{{ f.label }}</label>
+</div>
+{%- else %}
+<div class="field" data-field>
+  <label class="field__label" for="{{ fid }}">{{ f.label }}{% if f.required %} <span class="field__required">Required</span>{% endif %}</label>
+  {% if f.hint %}<p class="field__hint" id="{{ fid }}-hint">{{ f.hint }}</p>{% endif %}
+  <p class="field__error" id="{{ fid }}-error" hidden></p>
+  {%- set describedby = (fid + "-hint " if f.hint else "") + fid + "-error" %}
+  {%- if f.type == "select" %}
+  <select class="field__input field__input--select" id="{{ fid }}" name="{{ f.name }}" aria-describedby="{{ describedby }}"{% if f.required %} required data-required-msg="{{ f.requiredMsg }}"{% endif %}>
+    <option value="">Choose one</option>
+    {%- for opt in f.options %}
+    <option{% if opt == f.value %} selected{% endif %}>{{ opt }}</option>
+    {%- endfor %}
+  </select>
+  {%- elif f.type == "textarea" %}
+  <textarea class="field__input field__input--textarea" id="{{ fid }}" name="{{ f.name }}" rows="5" aria-describedby="{{ describedby }}"{% if f.required %} required data-required-msg="{{ f.requiredMsg }}"{% endif %}></textarea>
+  {%- else %}
+  <input class="field__input" type="{{ f.type or 'text' }}" id="{{ fid }}" name="{{ f.name }}" aria-describedby="{{ describedby }}"{% if f.autocomplete %} autocomplete="{{ f.autocomplete }}"{% endif %}{% if f.inputmode %} inputmode="{{ f.inputmode }}"{% endif %}{% if f.required %} required data-required-msg="{{ f.requiredMsg }}"{% endif %}{% if f.invalidMsg %} data-invalid-msg="{{ f.invalidMsg }}"{% endif %}{% if f.type == "email" or f.type == "tel" or f.type == "url" %} spellcheck="false"{% endif %}>
+  {%- endif %}
+</div>
+{%- endif %}

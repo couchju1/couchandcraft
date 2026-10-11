@@ -1,0 +1,8 @@
+{%- set band = cta if cta and cta.heading else {} -%}
+<section class="cta-band" aria-labelledby="cta-band-heading">
+  <div class="container cta-band__inner">
+    <h2 id="cta-band-heading" class="cta-band__heading">{{ band.heading or "Tell me about your business." }}</h2>
+    {% if band.text %}<p class="cta-band__text">{{ band.text }}</p>{% endif %}
+    <a class="button" href="{{ band.url or nav.cta.url }}" data-track="cta_click" data-label="cta-band">{{ band.label or nav.cta.title }}</a>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+title: "Website Pricing in Sioux Falls | Couch & Craft"
+description: "What a website costs, before you ask. Foundation and Signature builds, monthly care and missed-call follow-up."
+crumb: "Pricing"
+---
+{%- set p = site.pricing -%}
+<section class="band pricing-intro" aria-labelledby="page-heading">
+  <div class="container pricing-intro__inner">
+    <div class="flow">
+      <p class="eyebrow">Pricing</p>
+      <h1 id="page-heading">What a website costs, before you ask.</h1>
+      <p class="lead">Foundation builds start at {{ p.foundationFrom | open }}. Signature builds start at {{ p.signatureFrom | open }}, and most land around {{ p.signatureTypical | open }}.</p>
+      <p>Here's a Signature build broken out line by line, the way I'd write it up for you. No packages named Gold or Elite. Just what you're paying for.</p>
+      <p class="hero__actions"><a class="button" href="/start/" data-track="cta_click" data-label="pricing-intro">Start a project</a></p>
+    </div>
+    {% set receipt = { title: "Work order · Signature build", number: "Sample", lines: p.signatureReceipt.lines, totalLabel: "Typical total", total: p.signatureTypical, pins: p.signatureReceipt.pins } %}
+    {% include "partials/receipt.njk" %}
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="plans-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="plans-heading">Everything I offer, in one table</h2>
+    {%- set leadPrice = (p.leadResponseSetup | open) + " setup, then " + (p.leadResponseMonthly | open) + " a month" -%}
+    {% set table = {
+      caption: "Prices",
+      columns: ["Price", "How it's billed"],
+      rows: [
+        { label: "Foundation website", cells: ["From " + (p.foundationFrom | open), "Per project"] },
+        { label: "Signature website", cells: ["From " + (p.signatureFrom | open), "Per project"] },
+        { label: "Care & Growth plan", cells: [p.careMonthly, "Monthly"] },
+        { label: "Lead Response", cells: [leadPrice, "Setup, then monthly"] }
+      ]
+    } %}
+    {% include "partials/compare-table.njk" %}
+    <ul class="plan-links">
+      <li><a href="/web-design/">What's in Foundation and Signature</a></li>
+      <li><a href="/marketing/">What's in the Care &amp; Growth plan</a></li>
+      <li><a href="/lead-response/">How Lead Response works</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="extras-heading">
+  <div class="container two-up">
+    <div class="flow">
+      <h2 id="extras-heading">What's not included</h2>
+      <p>These cost extra or get paid straight to someone else. I'll tell you up front if your project needs any of them.</p>
+      <ul class="plain-list">
+        {%- for item in p.notIncluded %}
+        <li>{{ item }}</li>
+        {%- endfor %}
+      </ul>
+      {% if not p.notIncludedConfirmed %}<p class="review-note">[JUSTIN TO CONFIRM: this list, then set pricing.notIncludedConfirmed to true]</p>{% endif %}
+    </div>
+    <div class="flow">
+      <h2 id="terms-heading">How payment works</h2>
+      <p>{{ p.paymentTerms | open }}</p>
+    </div>
+  </div>
+</section>
+
+<div class="band band--white">
+  <div class="container">
+    {%- set faqs = [
+      { q: "Why do you show prices when most designers don't?", a: "<p>Because you'd ask anyway, and you shouldn't have to book a call to find out if I'm in your budget.</p>" },
+      { q: "Am I locked in to anything?", a: "<p>" + (p.ownershipPolicy | open) + "</p>" },
+      { q: "Do you offer payment plans?", a: "<p>" + (p.paymentTerms | open) + "</p>" }
+    ] -%}
+    {% set faqId = "pricing-faq" %}
+    {% include "partials/faq.njk" %}
+  </div>
+</div>
+
+<section class="band related" aria-label="Keep reading">
+  <div class="container related__inner">
+    <a class="related__link" href="/work/">See the sites I've built</a>
+    <a class="related__link" href="/teardown/">Get a free teardown first</a>
+  </div>
+</section>

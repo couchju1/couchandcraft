@@ -1,0 +1,72 @@
+{
+  "primary": [
+    {
+      "title": "Work",
+      "url": "/work/"
+    },
+    {
+      "title": "Web Design",
+      "url": "/web-design/"
+    },
+    {
+      "title": "Marketing",
+      "url": "/marketing/"
+    },
+    {
+      "title": "Lead Response",
+      "url": "/lead-response/"
+    },
+    {
+      "title": "Pricing",
+      "url": "/pricing/"
+    },
+    {
+      "title": "About",
+      "url": "/about/"
+    }
+  ],
+  "cta": {
+    "title": "Start a project",
+    "url": "/start/"
+  },
+  "more": [
+    {
+      "title": "Free website teardown",
+      "url": "/teardown/"
+    },
+    {
+      "title": "Missed call calculator",
+      "url": "/tools/missed-revenue-calculator/"
+    },
+    {
+      "title": "vs Smith.ai",
+      "url": "/compare/smith-ai-contractor-call-answering/"
+    },
+    {
+      "title": "vs Goodcall and Rosie",
+      "url": "/compare/goodcall-rosie-ai-receptionist-home-services/"
+    },
+    {
+      "title": "vs Jobber and Housecall Pro",
+      "url": "/compare/jobber-housecall-pro-ai-receptionist/"
+    },
+    {
+      "title": "Shop",
+      "url": "/shop/"
+    },
+    {
+      "title": "Blog",
+      "url": "/blog/"
+    }
+  ],
+  "legal": [
+    {
+      "title": "Privacy",
+      "url": "/privacy/"
+    },
+    {
+      "title": "Terms",
+      "url": "/terms/"
+    }
+  ]
+}

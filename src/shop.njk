@@ -1,0 +1,65 @@
+---
+layout: layouts/base.njk
+title: "Shop: Lead Response Kits for Contractors | Couch & Craft"
+description: "Scripts, templates and playbooks for HVAC, plumbing, electrical and roofing shops that are tired of losing jobs to unanswered calls."
+crumb: "Shop"
+---
+{%- set shop = site.shop -%}
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">HVAC · Plumbing · Electrical · Roofing</p>
+    <h1 id="page-heading">Stop losing jobs nobody answered.</h1>
+    <p class="page-hero__sub">Start with the free calculator, grab a kit and do it yourself, or have me set it up and run it for you.</p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="free-heading">
+  <div class="container shop-free">
+    <div class="flow">
+      <p class="eyebrow">Start free</p>
+      <h2 id="free-heading">Find out what missed calls cost you</h2>
+      <p>The calculator turns your own numbers into a monthly dollar figure.</p>
+    </div>
+    <p><a class="button" href="/tools/missed-revenue-calculator/" data-track="cta_click" data-label="shop-calculator">Open the calculator</a></p>
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="kits-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <div class="flow">
+      <h2 id="kits-heading">Kits you can use today</h2>
+      <p>One-time price. Each one is a download you can edit and use with your own phone and email.</p>
+    </div>
+    {%- if not shop.pricesConfirmed %}<p class="review-note">[JUSTIN TO CONFIRM: kit prices carried over from proclientflow.com, then set shop.pricesConfirmed to true]</p>{% endif %}
+    {%- if not shop.products[0].checkoutUrl %}<p class="coming-soon">Checkout is coming back soon. Want a kit now? <a href="/start/">Send me a note</a> and I'll sort it out.</p>{% endif %}
+    <ul class="products">
+      {%- for product in shop.products %}
+      <li class="product" id="{{ product.slug }}">
+        <p class="product__trades">{{ product.trades | join(" · ") }}</p>
+        <h3 class="product__name">{{ product.name }}</h3>
+        <p>{{ product.summary }}</p>
+        <p class="product__format">{{ product.format }}</p>
+        <div class="product__buy">
+          <span class="product__price">{{ product.price | open }}</span>
+          {%- if product.checkoutUrl %}
+          <a class="button" href="{{ product.checkoutUrl }}" rel="noopener" data-track="cta_click" data-label="shop-{{ product.slug }}">Buy<span class="visually-hidden"> {{ product.name }}</span></a>
+          {%- else %}
+          <span class="product__soon">Coming back soon</span>
+          {%- endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="dfy-heading">
+  <div class="container shop-free">
+    <div class="flow">
+      <p class="eyebrow">Done for you</p>
+      <h2 id="dfy-heading">Rather not build it yourself?</h2>
+      <p>I set up missed-call text-back, the right questions for your trade and booking on your calendar, then keep it tuned. {{ site.pricing.leadResponseSetup | open }} setup, then {{ site.pricing.leadResponseMonthly | open }} a month.</p>
+    </div>
+    <p><a class="button" href="/lead-response/" data-track="cta_click" data-label="shop-lead-response">See Lead Response</a></p>
+  </div>
+</section>

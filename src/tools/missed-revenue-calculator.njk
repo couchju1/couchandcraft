@@ -1,0 +1,87 @@
+---
+layout: layouts/base.njk
+title: "Missed Call Cost Calculator | Couch & Craft"
+description: "Put in four numbers you already know and see what unanswered calls cost your HVAC, plumbing, electrical or roofing business each month."
+crumb: "Missed call calculator"
+permalink: /tools/missed-revenue-calculator/
+---
+{%- set wb = site.shop.workbook -%}
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">Free calculator</p>
+    <h1 id="page-heading">What are missed calls costing you?</h1>
+    <p class="page-hero__sub">Most owners know they miss calls. Few know what it costs. Put in four numbers you already know and see it in dollars.</p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="calc-heading">
+  <div class="container calc">
+    <form class="calc__form" data-calculator aria-labelledby="calc-heading">
+      <h2 id="calc-heading" class="calc__heading">Your numbers</h2>
+      <div class="field">
+        <label class="field__label" for="calc-calls">Calls and web leads a month</label>
+        <input class="field__input" id="calc-calls" name="calls" type="number" inputmode="numeric" min="0" step="1" value="200">
+      </div>
+      <div class="field">
+        <label class="field__label" for="calc-missed">Share you miss (%)</label>
+        <p class="field__hint" id="calc-missed-hint">Not sure? Count a week of calls and how many went to voicemail.</p>
+        <input class="field__input" id="calc-missed" name="missed" type="number" inputmode="decimal" min="0" max="100" step="1" value="27" aria-describedby="calc-missed-hint">
+      </div>
+      <div class="field">
+        <label class="field__label" for="calc-booked">Share that would have booked (%)</label>
+        <input class="field__input" id="calc-booked" name="booked" type="number" inputmode="decimal" min="0" max="100" step="1" value="30">
+      </div>
+      <div class="field">
+        <label class="field__label" for="calc-value">Average job value ($)</label>
+        <input class="field__input" id="calc-value" name="value" type="number" inputmode="numeric" min="0" step="10" value="450">
+      </div>
+      <p class="field__hint">The starting numbers are an example. Replace them with yours.</p>
+    </form>
+
+    <div class="calc__result" aria-labelledby="result-heading">
+      <h2 id="result-heading" class="calc__heading">What walks to the next contractor</h2>
+      <dl class="calc__numbers" aria-live="polite">
+        <div><dt>Missed calls a month</dt><dd data-out="missed">54</dd></div>
+        <div><dt>Jobs that would have booked</dt><dd data-out="jobs">16</dd></div>
+        <div class="calc__big"><dt>Revenue lost a month</dt><dd data-out="monthly">$7,290</dd></div>
+        <div><dt>Revenue lost a year</dt><dd data-out="yearly">$87,480</dd></div>
+      </dl>
+      <p class="calc__formula">Calls × share missed × share that would have booked × average job value. That's revenue, not profit. Multiply by your margin for the profit side.</p>
+      <p><a class="button" href="/lead-response/#setup" data-track="cta_click" data-label="calculator-setup">Stop the leak</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="band band--white" aria-labelledby="workbook-heading">
+  <div class="container two-up">
+    <div class="flow">
+      <p class="eyebrow">{{ wb.price }}</p>
+      <h2 id="workbook-heading">The full workbook</h2>
+      <p>The {{ wb.name }} goes further than this page. It works in Excel or Google Sheets.</p>
+      {%- if wb.checkoutUrl %}
+      <p><a class="button" href="{{ wb.checkoutUrl }}" data-track="calculator_download">Get the workbook</a></p>
+      {%- else %}
+      <p class="coming-soon">The workbook download is coming back soon. Want it sooner? <a href="/start/">Send me a note</a> and I'll email it to you.</p>
+      {%- endif %}
+    </div>
+    <ul class="checklist__list checklist__list--single">
+      <li><strong>Missed-revenue calculator.</strong> Your call volume and average job value in, monthly and yearly loss out.</li>
+      <li><strong>Lead audit worksheet.</strong> A one-week tally of every call, text and web form, and how fast each got a reply.</li>
+      <li><strong>Leak finder checklist.</strong> Ten yes or no questions that point to where your leads slip away.</li>
+      <li><strong>Next steps guide.</strong> Plain advice on what to fix first, based on your number.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="trades-heading">
+  <div class="container flow" style="--flow-space: var(--space-l)">
+    <h2 id="trades-heading">Where the leaks usually are</h2>
+    <dl class="trades">
+      <div class="trades__row"><dt>HVAC</dt><dd>Peak summer and winter weeks, when calls pile up and replacement leads slip through.</dd></div>
+      <div class="trades__row"><dt>Plumbing</dt><dd>Emergency calls at night and on weekends, the ones most likely to go to voicemail.</dd></div>
+      <div class="trades__row"><dt>Electrical</dt><dd>Quote requests that go unanswered while you're on a job site.</dd></div>
+      <div class="trades__row"><dt>Roofing</dt><dd>Storm-season surges, when slow replies lose the most inspections.</dd></div>
+    </dl>
+    <p>Want the long version? Read <a href="/blog/how-much-does-a-missed-call-cost-an-hvac-company/">how much a missed call costs an HVAC company</a>.</p>
+  </div>
+</section>

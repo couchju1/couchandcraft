@@ -176,6 +176,98 @@
   "leadResponse": {
     "integrations": "[JUSTIN TO VERIFY: works alongside Jobber, Housecall Pro and ServiceTitan]"
   },
+  "shop": {
+    "checkoutProvider": "[JUSTIN TO SET: checkout provider, for example Stripe Payment Links or Lemon Squeezy]",
+    "pricesConfirmed": false,
+    "workbook": {
+      "name": "Missed-Revenue Calculator and Lead Audit Workbook",
+      "price": "Free",
+      "checkoutUrl": null
+    },
+    "products": [
+      {
+        "slug": "hvac-missed-call-text-back-kit",
+        "name": "HVAC Missed-Call Text-Back Setup Kit",
+        "trades": [
+          "HVAC"
+        ],
+        "summary": "Turn every missed call into an instant text, so the customer keeps talking to you instead of the next HVAC company.",
+        "price": "$49",
+        "format": "PDF plus a copy-and-paste text file",
+        "checkoutUrl": null
+      },
+      {
+        "slug": "emergency-call-triage-scripts-pack",
+        "name": "Emergency Call Triage Scripts Pack",
+        "trades": [
+          "HVAC",
+          "Plumbing",
+          "Electrical",
+          "Roofing"
+        ],
+        "summary": "Ready-to-use scripts that separate true emergencies from routine jobs and route them fast.",
+        "price": "$39",
+        "format": "Printable PDF plus an editable document",
+        "checkoutUrl": null
+      },
+      {
+        "slug": "speed-to-lead-templates-bundle",
+        "name": "Speed-to-Lead Response Templates Bundle",
+        "trades": [
+          "HVAC",
+          "Plumbing",
+          "Electrical",
+          "Roofing"
+        ],
+        "summary": "Text and email templates that get a reply out within minutes, while the lead is still shopping.",
+        "price": "$39",
+        "format": "PDF plus copy-and-paste text and email files",
+        "checkoutUrl": null
+      },
+      {
+        "slug": "after-hours-lead-capture-playbook",
+        "name": "After-Hours Lead Capture Playbook",
+        "trades": [
+          "HVAC",
+          "Plumbing",
+          "Electrical",
+          "Roofing"
+        ],
+        "summary": "Catch the leads that come in at night, on weekends and between 5 and 9 p.m., while you're on a roof or off the clock.",
+        "price": "$49",
+        "format": "PDF playbook plus editable scripts and checklists",
+        "checkoutUrl": null
+      },
+      {
+        "slug": "lead-follow-up-sequence-pack",
+        "name": "Lead Follow-Up Sequence Pack",
+        "trades": [
+          "HVAC",
+          "Plumbing",
+          "Electrical",
+          "Roofing"
+        ],
+        "summary": "A 5-touch sequence that wakes up quiet leads and quotes that went cold.",
+        "price": "$39",
+        "format": "PDF plus editable text and email templates",
+        "checkoutUrl": null
+      },
+      {
+        "slug": "ai-receptionist-prompt-library",
+        "name": "AI Receptionist Prompt and Qualification Question Library",
+        "trades": [
+          "HVAC",
+          "Plumbing",
+          "Electrical",
+          "Roofing"
+        ],
+        "summary": "Tested prompts and trade-specific questions for job type, urgency and location.",
+        "price": "$79",
+        "format": "PDF plus a copy-and-paste text file",
+        "checkoutUrl": null
+      }
+    ]
+  },
   "social": {
     "googleBusinessProfile": null,
     "facebook": null,

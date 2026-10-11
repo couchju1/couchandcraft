@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+title: "Blog for Contractors | Couch & Craft"
+description: "Plain-language guides for contractors who are tired of losing jobs to unanswered calls."
+crumb: "Blog"
+eleventyExcludeFromCollections: ["post"]
+breadcrumbs: []
+---
+<section class="page-hero band--navy" aria-labelledby="page-heading">
+  <div class="container page-hero__inner flow">
+    <p class="eyebrow">Blog</p>
+    <h1 id="page-heading">Guides for contractors</h1>
+    <p class="page-hero__sub">Plain-language guides for contractors who are tired of losing jobs to unanswered calls.</p>
+  </div>
+</section>
+
+<section class="band" aria-label="Articles">
+  <div class="container">
+    <ol class="post-list">
+      {%- for post in collections.post | reverse %}
+      <li class="post-list__item">
+        <h2 class="post-list__title"><a href="{{ post.url }}">{{ post.data.h1 }}</a></h2>
+        <p>{{ post.data.summary }}</p>
+        <p class="post-list__meta">{{ post.data.meta }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>

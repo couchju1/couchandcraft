@@ -123,7 +123,7 @@ Status: Strategy and sitemap approved. Design tokens and copy below are **provis
 │   └── robots.txt.njk
 ├── api/contact.php             # copied to dist/api/
 ├── api/contact-config.example.php
-├── .htaccess                   # https, www, trailing slashes, caching, security headers, 404
+├── src/htaccess.njk            # builds dist/.htaccess: www, trailing slashes, caching, security headers, 404
 └── redirects/proclientflow.htaccess   # deployed to the proclientflow.com addon domain folder
 ```
 
@@ -580,13 +580,15 @@ Redirects (301). Add proclientflow.com to Hostinger as an **addon domain** (its 
 | `/shop`, `/shop?trade=*` | `/shop/` (drop the query string with the `QSD` flag) |
 | `/products/missed-revenue-calculator-workbook` | `/tools/missed-revenue-calculator/` |
 | `/products/done-for-you-ai-lead-response-setup` | `/lead-response/#setup` |
+| `/products/managed-lead-response-retainer` | `/lead-response/` |
+| `/products/<kit slug>` (the six kits) | `/shop/#<kit slug>` (decided October 11, 2026) |
 | `/compare/*` | `/compare/*` |
 | `/blog/*` | `/blog/*` |
 | anything else | `/lead-response/` |
 
 Each old URL redirects in one hop, `http` and `https`, with and without `www`.
 
-On couchandcraft.com: force https and `www` (decided, matches `business.url`), add trailing slashes, return a real 404. Security headers in `.htaccess`: `Strict-Transport-Security` (start with `max-age=300`, raise to a year after launch checks pass), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, mic, geolocation off), and a `Content-Security-Policy` that allows self plus GA4 (`googletagmanager.com`, `google-analytics.com`) and the checkout provider once chosen. The one inline script (in `layouts/base.njk`, it swaps the `no-js` class for `js`) is allowed by its `sha256` hash, not `unsafe-inline`.
+On couchandcraft.com: force https and `www` (decided, matches `business.url`), add trailing slashes, return a real 404. Security headers in `.htaccess`: `Strict-Transport-Security` (start with `max-age=300`, raise to a year after launch checks pass), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera, mic, geolocation off), and a `Content-Security-Policy` that allows self plus GA4 (`googletagmanager.com`, `google-analytics.com`) and the checkout provider once chosen. The one inline script (in `layouts/base.njk`, it swaps the `no-js` class for `js`) is allowed by its `sha256` hash, not `unsafe-inline`. `style-src` does allow `'unsafe-inline'`, because pins and layout helpers use `style` attributes for positions. HTTPS is forced by Hostinger's "Force HTTPS" setting, since the site sits behind Hostinger's CDN.
 
 Search Console Change of Address: before launch, check what the tool requires of the old homepage redirect. If it warns that `/` → `/lead-response/` isn't a homepage-to-homepage move, decide with Justin whether to send `/` to `/` instead.
 

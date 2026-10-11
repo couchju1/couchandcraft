@@ -8,7 +8,8 @@
     "build": "node scripts/check.js --config && eleventy",
     "build:prod": "node scripts/check.js --config && cross-env ELEVENTY_ENV=production eleventy",
     "check": "node scripts/check.js",
-    "test:a11y": "node scripts/a11y.js"
+    "test:a11y": "node scripts/a11y.js",
+    "og": "node scripts/og.js"
   },
   "engines": {
     "node": ">=22"

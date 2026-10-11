@@ -4,6 +4,7 @@
   pagination: {
     data: "site.work",
     size: 1,
+    addAllPagesToCollections: true,
     alias: "entry",
     before: (work) => work.filter((entry) => entry.publish !== false),
   },
@@ -12,6 +13,7 @@
   eleventyComputed: {
     title: (data) => `${data.entry.client} Website | Couch & Craft`,
     crumb: (data) => data.entry.client,
+    ogImage: (data) => `/assets/img/og/work-${data.entry.slug}.jpg`,
     description: (data) =>
       data.entry.inHouse
         ? `${data.entry.client} is a ${data.entry.industry.replace(/ \(.*\)$/, "").toLowerCase()} I built and run myself. Here's how it's put together.`

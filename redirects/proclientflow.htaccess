@@ -1,0 +1,16 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteRule ^$ https://www.couchandcraft.com/lead-response/ [R=301,L,QSD]
+  RewriteRule ^shop/?$ https://www.couchandcraft.com/shop/ [R=301,L,QSD]
+  RewriteRule ^products/missed-revenue-calculator-workbook/?$ https://www.couchandcraft.com/tools/missed-revenue-calculator/ [R=301,L,QSD]
+  RewriteRule ^products/done-for-you-ai-lead-response-setup/?$ https://www.couchandcraft.com/lead-response/#setup [R=301,L,NE,QSD]
+  RewriteRule ^products/managed-lead-response-retainer/?$ https://www.couchandcraft.com/lead-response/ [R=301,L,QSD]
+  RewriteRule ^products/(hvac-missed-call-text-back-kit|emergency-call-triage-scripts-pack|speed-to-lead-templates-bundle|after-hours-lead-capture-playbook|lead-follow-up-sequence-pack|ai-receptionist-prompt-library)/?$ https://www.couchandcraft.com/shop/#$1 [R=301,L,NE,QSD]
+  RewriteRule ^compare/([a-z0-9-]+)/?$ https://www.couchandcraft.com/compare/$1/ [R=301,L,QSD]
+  RewriteRule ^blog/?$ https://www.couchandcraft.com/blog/ [R=301,L,QSD]
+  RewriteRule ^blog/([a-z0-9-]+)/?$ https://www.couchandcraft.com/blog/$1/ [R=301,L,QSD]
+  RewriteRule ^ https://www.couchandcraft.com/lead-response/ [R=301,L,QSD]
+</IfModule>

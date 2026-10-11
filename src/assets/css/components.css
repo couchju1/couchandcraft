@@ -843,10 +843,6 @@ main > .notice-strip + .page-hero { margin-top: 0; }
 .call-board__note { color: var(--slate); font-size: var(--step--1); }
 @media (min-width: 768px) { .call-board { grid-template-columns: 1fr 1fr; } }
 
-.stats { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
-.stats__item { display: flex; flex-direction: column-reverse; gap: var(--space-3xs); }
-.stats__item dd { margin: 0; font-family: var(--font-display); font-size: var(--step-4); font-weight: 600; }
-.stats__source { order: -1; color: var(--slate); font-size: var(--step--1); }
 
 .how-steps { padding: 0; list-style: none; display: grid; gap: var(--space-l); counter-reset: how; }
 .how-steps__item { display: grid; gap: var(--space-2xs); align-content: start; counter-increment: how; }

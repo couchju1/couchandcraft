@@ -25,7 +25,7 @@ permalink: /tools/missed-revenue-calculator/
       <div class="field">
         <label class="field__label" for="calc-missed">Share you miss (%)</label>
         <p class="field__hint" id="calc-missed-hint">Not sure? Count a week of calls and how many went to voicemail.</p>
-        <input class="field__input" id="calc-missed" name="missed" type="number" inputmode="decimal" min="0" max="100" step="1" value="27" aria-describedby="calc-missed-hint">
+        <input class="field__input" id="calc-missed" name="missed" type="number" inputmode="decimal" min="0" max="100" step="1" value="20" aria-describedby="calc-missed-hint">
       </div>
       <div class="field">
         <label class="field__label" for="calc-booked">Share that would have booked (%)</label>
@@ -41,10 +41,10 @@ permalink: /tools/missed-revenue-calculator/
     <div class="calc__result" aria-labelledby="result-heading">
       <h2 id="result-heading" class="calc__heading">What walks to the next contractor</h2>
       <dl class="calc__numbers" aria-live="polite">
-        <div><dt>Missed calls a month</dt><dd data-out="missed">54</dd></div>
-        <div><dt>Jobs that would have booked</dt><dd data-out="jobs">16</dd></div>
-        <div class="calc__big"><dt>Revenue lost a month</dt><dd data-out="monthly">$7,290</dd></div>
-        <div><dt>Revenue lost a year</dt><dd data-out="yearly">$87,480</dd></div>
+        <div><dt>Missed calls a month</dt><dd data-out="missed">40</dd></div>
+        <div><dt>Jobs that would have booked</dt><dd data-out="jobs">12</dd></div>
+        <div class="calc__big"><dt>Revenue lost a month</dt><dd data-out="monthly">$5,400</dd></div>
+        <div><dt>Revenue lost a year</dt><dd data-out="yearly">$64,800</dd></div>
       </dl>
       <p class="calc__formula">Calls × share missed × share that would have booked × average job value. That's revenue, not profit. Multiply by your margin for the profit side.</p>
       <p><a class="button" href="/lead-response/#setup" data-track="cta_click" data-label="calculator-setup">Stop the leak</a></p>

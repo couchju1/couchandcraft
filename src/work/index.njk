@@ -12,7 +12,7 @@ crumb: "Work"
     </div>
     {%- set cardLevel = 2 %}
     <div class="work-grid">
-      {%- for entry in site.work | published %}
+      {%- for entry in site.work | listed %}
       {% include "partials/work-card.njk" %}
       {%- endfor %}
     </div>

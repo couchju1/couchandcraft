@@ -39,6 +39,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("stripTags", (html) => String(html || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim());
   eleventyConfig.addFilter("hasImage", (src) => Boolean(src) && fs.existsSync(path.join(imageRoot, src)));
   eleventyConfig.addFilter("published", (work) => (work || []).filter((entry) => entry.publish !== false));
+  eleventyConfig.addFilter("listed", (work) => (work || []).filter((entry) => entry.publish !== false && entry.listed !== false));
   eleventyConfig.addFilter("findBySlug", (list, slug) => (list || []).find((entry) => entry.slug === slug));
   eleventyConfig.addFilter("without", (list, value) => (list || []).filter((item) => item !== value));
   eleventyConfig.addFilter("faqSchema", (faqs) => ({

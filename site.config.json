@@ -289,7 +289,7 @@
       "contact": "Randy Goettlicher",
       "industry": "Billiards instruction",
       "location": "Dallas, TX",
-      "liveUrl": "[NEEDS: live URL]",
+      "liveUrl": null,
       "beforeUrl": "https://randygpool.wixsite.com/randygpool",
       "permission": true,
       "quote": null,
@@ -299,7 +299,8 @@
         "Teaching for 50+ years",
         "Lessons in Dallas or on the road"
       ],
-      "industryPage": null
+      "industryPage": null,
+      "listed": false
     },
     {
       "slug": "nate-hall-insurance",

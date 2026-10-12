@@ -56,7 +56,7 @@ crumb: "Websites for Contractors"
     {%- set faqs = [
       { q: "I get most of my work from referrals. Do I need a website?", a: "<p>Referrals still look you up. Someone hears your name from a neighbor, searches it, and decides in a few seconds whether to call. The site is there for that moment.</p>" },
       { q: "Can you use photos from my phone?", a: "<p>Usually, yes. Sharp phone photos of real jobs beat stock photos. If you don't have many, start taking a few at the end of every job.</p>" },
-      { q: "What does it cost?", a: "<p>Websites start at " + (site.pricing.foundationFrom | open) + ". <a href=\"/pricing/\">See the full pricing</a>.</p>" }
+      { q: "What does it cost?", a: ("<p>Websites start at " + (site.pricing.foundationFrom | open) + ". <a href=\"/pricing/\">See the full pricing</a>.</p>") if ready.pricing else null }
     ] -%}
     {% set faqId = "contractors-faq" %}
     {% include "partials/faq.njk" %}

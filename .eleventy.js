@@ -40,6 +40,8 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addFilter("hasImage", (src) => Boolean(src) && fs.existsSync(path.join(imageRoot, src)));
   eleventyConfig.addFilter("published", (work) => (work || []).filter((entry) => entry.publish !== false));
   eleventyConfig.addFilter("listed", (work) => (work || []).filter((entry) => entry.publish !== false && entry.listed !== false));
+  eleventyConfig.addFilter("setOnly", (list, key) => (list || []).filter((item) => item && isSet(item[key])));
+  eleventyConfig.addFilter("faqReady", (faqs) => (faqs || []).filter((item) => item && item.a));
   eleventyConfig.addFilter("findBySlug", (list, slug) => (list || []).find((entry) => entry.slug === slug));
   eleventyConfig.addFilter("without", (list, value) => (list || []).filter((item) => item !== value));
   eleventyConfig.addFilter("faqSchema", (faqs) => ({
@@ -106,7 +108,7 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.on("eleventy.before", () => {
     if (!isProduction) return;
     const { analytics } = require("./site.config.json");
-    if (!isSet(analytics.ga4)) throw new Error(`Production build needs analytics.ga4 in site.config.json (got ${analytics.ga4})`);
+    if (isOpen(analytics.ga4)) throw new Error(`Production build needs analytics.ga4 set or null in site.config.json (got ${analytics.ga4})`);
   });
 
   eleventyConfig.addGlobalData("env", isProduction ? "production" : "development");

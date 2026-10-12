@@ -19,8 +19,8 @@
     <nav class="site-footer__nav" aria-label="Footer">
       <h2 class="site-footer__heading">Pages</h2>
       <ul class="site-footer__list">
-        {%- for item in nav.primary %}
-        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {%- for item in nav.primary %}{% if item.url != "/pricing/" or ready.pricing %}
+        <li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endif %}
         {%- endfor %}
       </ul>
     </nav>

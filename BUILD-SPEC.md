@@ -18,6 +18,7 @@ Status: Strategy and sitemap approved. Design tokens and copy below are **provis
    - **Set:** a real value. Render it.
    - **Open:** a string starting with `[` (for example `"[JUSTIN TO SET]"`). The value is coming but isn't known yet. Templates never print it raw. They go through the `open` filter (`{{ site.contact.phoneDisplay | open }}`), which renders the open value itself (for example `[JUSTIN TO SET]`) as a visible marker in dev builds and **fails the build** when `ELEVENTY_ENV=production`. Never put an open value inside an attribute (`href="tel:..."`, JSON-LD, `content="..."`). Wrap the element in `{% if site.contact.phoneE164 | isSet %}` so it disappears until the value is set.
    - **Null:** deliberately absent. The block is not rendered, in any build.
+   - **Launch mode (decided October 12, 2026):** values Justin doesn't have yet are set to `null`, and every section that depends on them is hidden. `src/_data/ready.js` holds the flags: pricing, Lead Response pricing, the Care & Growth plan, process timing, packages and analytics. With no prices, `/pricing/` isn't built and every link to it is hidden. An FAQ item whose answer is `null` is dropped. Case-study sections with only `[COPY]` text are dropped. Terms of use isn't built until it's written. Setting a value brings its section back.
 7. Copy checks (dashes, semicolons, banned words) run on **visible text only**: the build's HTML with tags, scripts, styles and attributes stripped and entities decoded. Never grep raw HTML for semicolons, because `&amp;` and inline CSS contain them.
 
 ---

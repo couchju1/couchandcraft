@@ -54,7 +54,7 @@ crumb: "Websites for Insurance Agents"
     {%- set faqs = [
       { q: "Can you write the compliance wording for me?", a: "<p>No. That has to come from you, your carriers or your compliance contact. I'll make sure it's on every page and easy to read.</p>" },
       { q: "Will the quote form be safe for health questions?", a: "<p>The form is built to avoid them. It asks what kind of coverage someone wants and how to reach them, and tells them not to send health details or policy numbers.</p>" },
-      { q: "What does it cost?", a: "<p>Websites start at " + (site.pricing.foundationFrom | open) + ". <a href=\"/pricing/\">See the full pricing</a>.</p>" }
+      { q: "What does it cost?", a: ("<p>Websites start at " + (site.pricing.foundationFrom | open) + ". <a href=\"/pricing/\">See the full pricing</a>.</p>") if ready.pricing else null }
     ] -%}
     {% set faqId = "insurance-faq" %}
     {% include "partials/faq.njk" %}

@@ -30,7 +30,6 @@ crumb: "Shop"
       <h2 id="kits-heading">Kits you can use today</h2>
       <p>One-time price. Each one is a download you can edit and use with your own phone and email.</p>
     </div>
-    {%- if not shop.pricesConfirmed %}<p class="review-note">[JUSTIN TO CONFIRM: kit prices carried over from proclientflow.com, then set shop.pricesConfirmed to true]</p>{% endif %}
     {%- if not shop.products[0].checkoutUrl %}<p class="coming-soon">Checkout is coming back soon. Want a kit now? <a href="/start/">Send me a note</a> and I'll sort it out.</p>{% endif %}
     <ul class="products">
       {%- for product in shop.products %}
@@ -40,7 +39,7 @@ crumb: "Shop"
         <p>{{ product.summary }}</p>
         <p class="product__format">{{ product.format }}</p>
         <div class="product__buy">
-          <span class="product__price">{{ product.price | open }}</span>
+          {% if shop.pricesConfirmed %}<span class="product__price">{{ product.price | open }}</span>{% endif %}
           {%- if product.checkoutUrl %}
           <a class="button" href="{{ product.checkoutUrl }}" rel="noopener" data-track="cta_click" data-label="shop-{{ product.slug }}">Buy<span class="visually-hidden"> {{ product.name }}</span></a>
           {%- else %}
@@ -58,7 +57,7 @@ crumb: "Shop"
     <div class="flow">
       <p class="eyebrow">Done for you</p>
       <h2 id="dfy-heading">Rather not build it yourself?</h2>
-      <p>I set up missed-call text-back, the right questions for your trade and booking on your calendar, then keep it tuned. {{ site.pricing.leadResponseSetup | open }} setup, then {{ site.pricing.leadResponseMonthly | open }} a month.</p>
+      <p>I set up missed-call text-back, the right questions for your trade and booking on your calendar, then keep it tuned.{% if ready.leadPricing %} {{ site.pricing.leadResponseSetup }} setup, then {{ site.pricing.leadResponseMonthly }} a month.{% endif %}</p>
     </div>
     <p><a class="button" href="/lead-response/" data-track="cta_click" data-label="shop-lead-response">See Lead Response</a></p>
   </div>

@@ -22,7 +22,7 @@ A built-in AI receptionist is software you configure. Lead Response is a managed
 | --- | --- | --- | --- |
 | What it does | Answers calls and texts, answers business questions, captures inquiries, creates work requests and schedules in Jobber | Answers around the clock using your hours, voice and pricing rules, checks the live schedule and books in Housecall Pro | Runs alongside your software: missed-call text-back, qualification, booking on your calendar and follow-up |
 | Included or extra | Included with Plus, an add-on on some plans | A paid add-on, not part of the base plan | Fixed setup plus a monthly fee |
-| Price | Jobber's own pages show different figures. Check its live pricing page | Not confirmed. Ask Housecall Pro for a quote | {{ site.pricing.leadResponseSetup | open }} setup, then {{ site.pricing.leadResponseMonthly | open }} a month. Not billed per conversation |
+| Price | Jobber's own pages show different figures. Check its live pricing page | Not confirmed. Ask Housecall Pro for a quote | {% if ready.leadPricing %}{{ site.pricing.leadResponseSetup }} setup, then {{ site.pricing.leadResponseMonthly }} a month. {% else %}Fixed setup plus a monthly fee. {% endif %}Not billed per conversation |
 | Who sets it up | You decide what it answers, collects and books | You supply hours, voice, pricing rules, availability and booking logic | I do, from an intake form and a kickoff call |
 | Native to your software | Yes. No re-entry, no separate CRM | Yes. Books against the live schedule | Works alongside it. Your software stays the system of record |
 | Trade-specific questions | Whatever you write into the rules | Whatever you write into the rules | Built for HVAC, plumbing, electrical and roofing |
@@ -74,7 +74,7 @@ No. Keep Jobber or Housecall Pro as your system of record. I set up lead respons
 
 ### What does it cost?
 
-Setup is {{ site.pricing.leadResponseSetup | open }} and then {{ site.pricing.leadResponseMonthly | open }} a month, with no per-conversation charge. The built-in tools can be cheaper on sticker price. Jobber lists its Receptionist as included with Plus and as an add-on on some plans, and its pages show different prices, so check Jobber's live pricing page. I haven't confirmed a current Housecall Pro price, so ask them for a quote.
+{% if ready.leadPricing %}Setup is {{ site.pricing.leadResponseSetup }} and then {{ site.pricing.leadResponseMonthly }} a month, with no per-conversation charge.{% else %}It's a fixed setup plus a monthly fee, with no per-conversation charge. Prices aren't published yet, so book a setup call and I'll give you a number for your shop.{% endif %} The built-in tools can be cheaper on sticker price. Jobber lists its Receptionist as included with Plus and as an add-on on some plans, and its pages show different prices, so check Jobber's live pricing page. I haven't confirmed a current Housecall Pro price, so ask them for a quote.
 
 ### What happens to emergency calls?
 

@@ -15,7 +15,7 @@ service:
     <p class="page-hero__sub">Most of your calls start with a Google search or a Maps listing. I work on both, then show you each month what came in.</p>
     <p class="hero__actions">
       <a class="button button--gold" href="/start/" data-track="cta_click" data-label="marketing-hero">Start a project</a>
-      <a class="button button--secondary" href="/pricing/">See pricing</a>
+      {% if ready.pricing %}<a class="button button--secondary" href="/pricing/">See pricing</a>{% else %}<a class="button button--secondary" href="/work/">See my work</a>{% endif %}
     </p>
   </div>
 </section>
@@ -88,6 +88,7 @@ service:
   </div>
 </section>
 
+{%- if ready.carePlan %}
 <section class="band" aria-labelledby="care-heading">
   <div class="container care">
     <div class="flow">
@@ -102,13 +103,14 @@ service:
     </ul>
   </div>
 </section>
+{%- endif %}
 
 <div class="band band--white">
   <div class="container">
     {%- set faqs = [
-      { q: "Do I need a new website first?", a: "<p>[JUSTIN TO SET: whether the Care &amp; Growth plan works with a site you didn't build]</p>" },
+      { q: "Do I need a new website first?", a: null },
       { q: "Will you write reviews for me?", a: "<p>No. Fake reviews break Google's rules and they read fake to customers too. I'll help you ask real customers, at the right time, in a way that's easy for them.</p>" },
-      { q: "Can I cancel?", a: "<p>[JUSTIN TO SET: cancellation terms for the Care &amp; Growth plan]</p>" }
+      { q: "Can I cancel?", a: null }
     ] -%}
     {% set faqId = "marketing-faq" %}
     {% include "partials/faq.njk" %}
@@ -117,7 +119,7 @@ service:
 
 <section class="band related" aria-label="Keep reading">
   <div class="container related__inner">
-    <a class="related__link" href="/pricing/">See what it costs</a>
+    {% if ready.pricing %}<a class="related__link" href="/pricing/">See what it costs</a>{% endif %}
     <a class="related__link" href="/work/">See the sites I've built</a>
     <a class="related__link" href="/lead-response/">Answer the calls you miss</a>
   </div>

@@ -1,7 +1,7 @@
 {
   "business": {
     "name": "Couch & Craft",
-    "legalName": "[JUSTIN TO SET]",
+    "legalName": "Couch and Craft LLC",
     "founder": "Justin Couch",
     "descriptor": "Web design · Marketing · Automation",
     "url": "https://www.couchandcraft.com",
@@ -26,12 +26,12 @@
     "formerDomain": "proclientflow.com"
   },
   "contact": {
-    "phoneDisplay": "[JUSTIN TO SET]",
-    "phoneE164": "[JUSTIN TO SET]",
+    "phoneDisplay": "605-681-6144",
+    "phoneE164": "+16056816144",
     "email": "sales@couchandcraft.com",
     "formTo": "sales@couchandcraft.com",
-    "responseTime": "[JUSTIN TO SET, e.g. one business day]",
-    "hours": "[JUSTIN TO SET]"
+    "responseTime": "24 hours",
+    "hours": "8 a.m. to 5 p.m."
   },
   "pricing": {
     "foundationFrom": "[JUSTIN TO SET]",
@@ -41,7 +41,7 @@
     "leadResponseSetup": "[JUSTIN TO SET]",
     "leadResponseMonthly": "[JUSTIN TO SET]",
     "paymentTerms": "[JUSTIN TO SET]",
-    "ownershipPolicy": "[JUSTIN TO CONFIRM: client owns domain, site files and accounts]",
+    "ownershipPolicy": "You own your domain, your site files and your accounts.",
     "signatureReceipt": {
       "lines": [
         {

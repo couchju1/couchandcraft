@@ -1,13 +1,13 @@
-{#- Expects: compare = { id, label, before: annotation key, after: { image, alt } or null, afterMissing } -#}
+{#- Expects: compare = { id, label, before: annotation key, after: annotation key, hideNotes } -#}
 {%- set beforeNote = annotations[compare.before] -%}
+{%- set afterNote = annotations[compare.after] -%}
 <div class="before-after" data-before-after id="{{ compare.id }}">
   <div class="before-after__frame" style="--position: 50%">
     <div class="before-after__layer before-after__layer--after">
-      {%- if compare.after and compare.after.image %}
-      <img src="{{ compare.after.image }}" alt="{{ compare.after.alt }}" sizes="(min-width: 1280px) 76rem, 100vw">
-      {%- else %}
-      <div class="before-after__missing"><p>{{ compare.afterMissing or "[NEEDS: after screenshot]" }}</p></div>
-      {%- endif %}
+      <img src="{{ afterNote.image }}" alt="{{ afterNote.alt }}" sizes="(min-width: 1280px) 76rem, 100vw">
+      {%- for pin in afterNote.pins %}
+      <span class="pins__marker pins__marker--after" style="--x: {{ pin.x }}%; --y: {{ pin.y }}%" aria-hidden="true" data-pin="{{ compare.id }}-after-{{ loop.index }}">{{ loop.index }}</span>
+      {%- endfor %}
       <span class="before-after__tag before-after__tag--after" aria-hidden="true">After</span>
     </div>
     <div class="before-after__layer before-after__layer--before">
@@ -20,11 +20,24 @@
     <span class="before-after__handle" aria-hidden="true"></span>
     <input class="before-after__range" type="range" min="0" max="100" step="1" value="50" aria-label="{{ compare.label }}" aria-valuetext="Showing 50% before, 50% after" data-track="before_after_interact">
   </div>
-  {%- if not compare.hideNotes %}
-  <ol class="pins__notes">
-    {%- for pin in beforeNote.pins %}
-    <li id="{{ compare.id }}-note-{{ loop.index }}" class="pins__note" data-pin="{{ compare.id }}-{{ loop.index }}"><span class="pins__num" aria-hidden="true">{{ loop.index }}</span><span>{{ pin.text }}</span></li>
-    {%- endfor %}
-  </ol>
-  {%- endif %}
+  <div class="before-after__notes">
+    {%- if not compare.hideNotes %}
+    <div>
+      <h3 class="before-after__notes-title">Before</h3>
+      <ol class="pins__notes">
+        {%- for pin in beforeNote.pins %}
+        <li id="{{ compare.id }}-note-{{ loop.index }}" class="pins__note" data-pin="{{ compare.id }}-{{ loop.index }}"><span class="pins__num" aria-hidden="true">{{ loop.index }}</span><span>{{ pin.text }}</span></li>
+        {%- endfor %}
+      </ol>
+    </div>
+    {%- endif %}
+    <div>
+      <h3 class="before-after__notes-title">After</h3>
+      <ol class="pins__notes">
+        {%- for pin in afterNote.pins %}
+        <li id="{{ compare.id }}-after-note-{{ loop.index }}" class="pins__note" data-pin="{{ compare.id }}-after-{{ loop.index }}"><span class="pins__num pins__num--after" aria-hidden="true">{{ loop.index }}</span><span>{{ pin.text }}</span></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </div>
 </div>

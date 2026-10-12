@@ -287,18 +287,17 @@
       "contact": "Randy Goettlicher",
       "industry": "Billiards instruction",
       "location": "Dallas, TX",
-      "liveUrl": null,
+      "liveUrl": "https://popshof.vercel.app/",
       "beforeUrl": "https://randygpool.wixsite.com/randygpool",
       "permission": true,
       "quote": null,
       "results": null,
       "facts": [
         "PBIA Master Instructor",
-        "Teaching for 50+ years",
+        "Teaching for 60+ years",
         "Lessons in Dallas or on the road"
       ],
-      "industryPage": null,
-      "listed": false
+      "industryPage": null
     },
     {
       "slug": "nate-hall-insurance",

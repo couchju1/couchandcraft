@@ -1044,3 +1044,11 @@ main > .notice-strip + .page-hero { margin-top: 0; }
 .product__price { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; }
 .product__soon { color: var(--slate); font-size: var(--step--1); font-weight: 600; }
 .article-meta-light { color: var(--slate); font-size: var(--step--1); }
+
+.before-after__notes { display: grid; gap: var(--space-l); }
+.before-after__notes-title { font-family: var(--font-label); font-size: var(--step--1); font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--gold-text); margin-bottom: var(--space-xs); }
+.before-after__notes .pins__notes { grid-template-columns: 1fr; }
+@media (min-width: 768px) { .before-after__notes { grid-template-columns: 1fr 1fr; } }
+.pins__marker--after,
+.pins__num--after { background: var(--paper); }
+.home-proof__phone { display: grid; gap: var(--space-l); align-content: start; }

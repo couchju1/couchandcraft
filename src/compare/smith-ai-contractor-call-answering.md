@@ -42,7 +42,7 @@ Smith.ai bills its human receptionist plans per call, not per minute. Its publis
 | 60 | about $645 |
 | 100 | about $1,105 (a higher tier may cost less) |
 
-Heat waves, cold snaps and storms bring the most calls, and that's when per-call overage adds up. Lead Response is a fixed setup of {{ site.pricing.leadResponseSetup | open }} plus {{ site.pricing.leadResponseMonthly | open }} a month.
+Heat waves, cold snaps and storms bring the most calls, and that's when per-call overage adds up. Lead Response is {% if ready.leadPricing %}a fixed setup of {{ site.pricing.leadResponseSetup }} plus {{ site.pricing.leadResponseMonthly }} a month{% else %}a fixed setup plus a monthly fee{% endif %}, not billed per call.
 
 ## Where Smith.ai is the better fit
 

@@ -13,7 +13,6 @@ person: true
     <div class="flow">
       <p class="eyebrow">About</p>
       <h1 id="page-heading">I'm {{ site.business.founder }}. Yes, that's the Couch.</h1>
-      <p class="lead">[COPY: Justin's story in his own words, Phase 5]</p>
       {%- if site.about.showDayJob %}
       <p>[COPY: day job mention]</p>
       {%- endif %}
@@ -59,6 +58,6 @@ person: true
       <li>{{ town }}</li>
       {%- endfor %}
     </ul>
-    <p>See <a href="/work/">the sites I've built</a> or <a href="/pricing/">what it costs</a>.</p>
+    <p>See <a href="/work/">the sites I've built</a>{% if ready.pricing %} or <a href="/pricing/">what it costs</a>{% endif %}.</p>
   </div>
 </section>

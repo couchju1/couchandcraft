@@ -5,9 +5,9 @@
     <ol class="process__steps">
       {%- for item in site.process %}
       <li class="process__step">
-        <p class="process__weeks">{{ item.weeks | open }}</p>
+        {% if item.weeks %}<p class="process__weeks">{{ item.weeks | open }}</p>{% endif %}
         <h3 class="process__title">{{ item.step }}</h3>
-        <p>{{ processNotes[loop.index0] if processNotes else "[COPY: one line on this step, Phase 5]" }}</p>
+        {% if processNotes and processNotes[loop.index0] %}<p>{{ processNotes[loop.index0] }}</p>{% endif %}
       </li>
       {%- endfor %}
     </ol>

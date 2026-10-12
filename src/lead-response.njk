@@ -62,7 +62,7 @@ cta: false
       <li class="how-steps__item"><h3>{{ step.title }}</h3><p>{{ step.text }}</p></li>
       {%- endfor %}
     </ol>
-    <p class="integrations">{{ site.leadResponse.integrations | open }}</p>
+    {% if site.leadResponse.integrations %}<p class="integrations">{{ site.leadResponse.integrations | open }}</p>{% endif %}
   </div>
 </section>
 
@@ -101,7 +101,7 @@ cta: false
     <div class="flow">
       <h2 id="setup-heading">Book a setup call</h2>
       <p>Tell me a little about how calls come in now. I'll show you what the text back would look like for your business.</p>
-      <p>See <a href="/pricing/">pricing</a> or <a href="/work/">the sites I've built</a>.</p>
+      <p>See {% if ready.pricing %}<a href="/pricing/">pricing</a> or {% endif %}<a href="/work/">the sites I've built</a>.</p>
     </div>
     {% set form = { id: "setup-form", type: "lead-response", preselect: "I'm missing calls", submitLabel: "Book my setup call" } %}
     {% include "partials/form.njk" %}

@@ -13,6 +13,6 @@ permalink: /start/thanks/
   <div class="container flow">
     <h1 id="page-heading">Got it. I'll be in touch within {{ site.contact.responseTime | open }}.</h1>
     <p class="lead">Your message is in my inbox. If it's urgent, call me at {% set kind = "phone" %}{% set location = "thanks" %}{% include "partials/contact-link.njk" %}.</p>
-    <p>While you wait, see <a href="/work/">the sites I've built</a> or <a href="/pricing/">what a website costs</a>.</p>
+    <p>While you wait, see <a href="/work/">the sites I've built</a>{% if ready.pricing %} or <a href="/pricing/">what a website costs</a>{% endif %}.</p>
   </div>
 </section>

@@ -1,7 +1,7 @@
 {
   "business": {
     "name": "Couch & Craft",
-    "legalName": "[JUSTIN TO SET]",
+    "legalName": "Couch and Craft LLC",
     "founder": "Justin Couch",
     "descriptor": "Web design · Marketing · Automation",
     "url": "https://www.couchandcraft.com",
@@ -26,22 +26,22 @@
     "formerDomain": "proclientflow.com"
   },
   "contact": {
-    "phoneDisplay": "[JUSTIN TO SET]",
-    "phoneE164": "[JUSTIN TO SET]",
+    "phoneDisplay": "605-681-6144",
+    "phoneE164": "+16056816144",
     "email": "sales@couchandcraft.com",
     "formTo": "sales@couchandcraft.com",
-    "responseTime": "[JUSTIN TO SET, e.g. one business day]",
-    "hours": "[JUSTIN TO SET]"
+    "responseTime": "24 hours",
+    "hours": "8 a.m. to 5 p.m."
   },
   "pricing": {
-    "foundationFrom": "[JUSTIN TO SET]",
-    "signatureFrom": "[JUSTIN TO SET]",
-    "signatureTypical": "[JUSTIN TO SET: a dollar figure, about $10,000]",
-    "careMonthly": "[JUSTIN TO SET]",
-    "leadResponseSetup": "[JUSTIN TO SET]",
-    "leadResponseMonthly": "[JUSTIN TO SET]",
-    "paymentTerms": "[JUSTIN TO SET]",
-    "ownershipPolicy": "[JUSTIN TO CONFIRM: client owns domain, site files and accounts]",
+    "foundationFrom": null,
+    "signatureFrom": null,
+    "signatureTypical": null,
+    "careMonthly": null,
+    "leadResponseSetup": null,
+    "leadResponseMonthly": null,
+    "paymentTerms": null,
+    "ownershipPolicy": "You own your domain, your site files and your accounts.",
     "signatureReceipt": {
       "lines": [
         {
@@ -84,19 +84,19 @@
   "process": [
     {
       "step": "A 30-minute call",
-      "weeks": "[JUSTIN TO SET]"
+      "weeks": null
     },
     {
       "step": "I write the words",
-      "weeks": "[JUSTIN TO SET]"
+      "weeks": null
     },
     {
       "step": "You see the design",
-      "weeks": "[JUSTIN TO SET]"
+      "weeks": null
     },
     {
       "step": "Launch, then we track the calls",
-      "weeks": "[JUSTIN TO SET]"
+      "weeks": null
     }
   ],
   "webDesign": {
@@ -113,71 +113,69 @@
     "packages": [
       {
         "label": "Pages",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Copywriting",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Strategy session",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Custom design",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Photo direction",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Local SEO",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Schema markup",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Call and form tracking",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Google Business Profile",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Revisions",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       },
       {
         "label": "Timeline",
-        "foundation": "[JUSTIN TO SET]",
-        "signature": "[JUSTIN TO SET]"
+        "foundation": null,
+        "signature": null
       }
     ]
   },
   "carePlan": {
-    "includes": [
-      "[JUSTIN TO SET: what the Care & Growth plan includes each month]"
-    ]
+    "includes": []
   },
   "leadResponse": {
-    "integrations": "[JUSTIN TO VERIFY: works alongside Jobber, Housecall Pro and ServiceTitan]"
+    "integrations": null
   },
   "shop": {
-    "checkoutProvider": "[JUSTIN TO SET: checkout provider, for example Stripe Payment Links or Lemon Squeezy]",
+    "checkoutProvider": null,
     "pricesConfirmed": false,
     "workbook": {
       "name": "Missed-Revenue Calculator and Lead Audit Workbook",
@@ -277,7 +275,7 @@
     "linkedin": null
   },
   "analytics": {
-    "ga4": "[JUSTIN TO SET]"
+    "ga4": null
   },
   "about": {
     "showDayJob": false
@@ -336,9 +334,7 @@
       "inHouse": true,
       "quote": null,
       "results": null,
-      "facts": [
-        "[JUSTIN TO VERIFY: 107 venue listings at last count]"
-      ],
+      "facts": [],
       "industryPage": null
     }
   ]

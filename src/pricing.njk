@@ -4,6 +4,7 @@ title: "Website Pricing in Sioux Falls | Couch & Craft"
 description: "What a website costs, before you ask. Foundation and Signature builds, monthly care and missed-call follow-up."
 crumb: "Pricing"
 ---
+{%- if ready.pricing %}
 {%- set p = site.pricing -%}
 <section class="band pricing-intro" aria-labelledby="page-heading">
   <div class="container pricing-intro__inner">
@@ -79,3 +80,4 @@ crumb: "Pricing"
     <a class="related__link" href="/teardown/">Get a free teardown first</a>
   </div>
 </section>
+{%- endif %}

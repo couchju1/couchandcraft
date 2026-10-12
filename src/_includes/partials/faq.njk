@@ -1,4 +1,6 @@
-{#- Expects: faqs = [{ q, a }] (a may contain simple HTML). Optional: faqHeading, faqId -#}
+{#- Expects: faqs = [{ q, a }] (a may contain simple HTML, null hides the item). Optional: faqHeading, faqId -#}
+{%- set faqs = faqs | faqReady -%}
+{%- if faqs.length %}
 <section class="faq" aria-labelledby="{{ faqId or 'faq' }}-heading">
   <h2 id="{{ faqId or 'faq' }}-heading">{{ faqHeading or "Questions people ask" }}</h2>
   <div class="faq__list">
@@ -11,3 +13,4 @@
   </div>
 </section>
 <script type="application/ld+json">{{ faqs | faqSchema | jsonLd | safe }}</script>
+{%- endif %}

@@ -8,14 +8,13 @@ cta: false
 <section class="band" aria-labelledby="page-heading">
   <div class="container prose flow">
     <h1 id="page-heading">Privacy policy</h1>
-    <p class="review-note">[CLIENT TO VERIFY: this is a plain-language draft based on how the site works. Have it reviewed before launch.]</p>
     <h2>What I collect</h2>
     <p>When you fill out a form on this site, I get what you type in: your name, business name, email, phone, website and message. It's sent to my email inbox so I can reply.</p>
-    <p>The site uses Google Analytics to count visits and see which pages people use. Google Analytics uses cookies and collects things like the pages you view, your browser and your general location. It doesn't give me your name or email.</p>
+    {% if ready.analytics %}<p>The site uses Google Analytics to count visits and see which pages people use. Google Analytics uses cookies and collects things like the pages you view, your browser and your general location. It doesn't give me your name or email.</p>{% else %}<p>The site doesn't use analytics or advertising cookies.</p>{% endif %}
     <h2>What I do with it</h2>
     <p>I use what you send to reply to you and to work on your project. I don't sell it or share it with anyone for their marketing.</p>
     <h2>Removing your information</h2>
     <p>Email {% set kind = "email" %}{% set location = "privacy" %}{% include "partials/contact-link.njk" %} and ask, and I'll delete your messages.</p>
-    <p class="article-meta-light">Last updated: [JUSTIN TO SET: date]</p>
+    <p class="article-meta-light">Last updated: October 12, 2026</p>
   </div>
 </section>

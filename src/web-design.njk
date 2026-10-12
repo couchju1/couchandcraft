@@ -19,7 +19,7 @@ service:
       <p class="page-hero__sub">For owners who know their trade and don't want to become web people. I handle the words, the design, the build and the Google setup.</p>
       <p class="hero__actions">
         <a class="button button--gold" href="/start/" data-track="cta_click" data-label="web-design-hero">Start a project</a>
-        <a class="button button--secondary" href="/pricing/">See pricing</a>
+        {% if ready.pricing %}<a class="button button--secondary" href="/pricing/">See pricing</a>{% else %}<a class="button button--secondary" href="/work/">See my work</a>{% endif %}
       </p>
     </div>
     <div class="shot-stack" aria-label="Screenshots of sites I've built" role="group">
@@ -38,10 +38,10 @@ service:
       <li>{{ item | open }}</li>
       {%- endfor %}
     </ul>
-    {% if not site.webDesign.includesConfirmed %}<p class="review-note">[JUSTIN TO CONFIRM: this list, then set webDesign.includesConfirmed to true]</p>{% endif %}
   </div>
 </section>
 
+{%- if ready.packages %}
 <section class="band band--white" aria-labelledby="packages-heading">
   <div class="container flow" style="--flow-space: var(--space-l)">
     <div class="flow">
@@ -54,6 +54,7 @@ service:
     <p><a class="text-link" href="/pricing/">Full pricing, including care plans</a></p>
   </div>
 </section>
+{%- endif %}
 
 {% set processHeading = "How a build goes" %}
 {% include "partials/process.njk" %}
@@ -74,8 +75,8 @@ service:
 <div class="band">
   <div class="container">
     {%- set faqs = [
-      { q: "Do you handle hosting?", a: "<p>[JUSTIN TO SET: hosting answer]</p>" },
-      { q: "What if I need changes after launch?", a: "<p>[JUSTIN TO SET: how edits after launch work and what they cost]</p>" },
+      { q: "Do you handle hosting?", a: null },
+      { q: "What if I need changes after launch?", a: null },
       { q: "Do I own my website?", a: "<p>" + (site.pricing.ownershipPolicy | open) + "</p>" },
       { q: "Do you use AI?", a: "<p>Yes, for parts of the work, like research and first drafts. I check, rewrite and test everything myself before you see it. Nothing goes live that I haven't read.</p>" },
       { q: "I already have a website. Do I need a new one?", a: "<p>Maybe not. Send me your site. If you don't need a new one, I'll tell you. Sometimes the fix is better words and a working contact form, not a rebuild.</p><p><a href=\"/teardown/\">Get a free teardown</a></p>" }
@@ -88,7 +89,7 @@ service:
 <section class="band band--white related" aria-label="Keep reading">
   <div class="container related__inner">
     <a class="related__link" href="/work/">See the sites I've built</a>
-    <a class="related__link" href="/pricing/">See what it costs</a>
+    {% if ready.pricing %}<a class="related__link" href="/pricing/">See what it costs</a>{% endif %}
     <a class="related__link" href="/websites-for-contractors/">Websites for contractors</a>
     <a class="related__link" href="/websites-for-insurance-agents/">Websites for insurance agents</a>
   </div>

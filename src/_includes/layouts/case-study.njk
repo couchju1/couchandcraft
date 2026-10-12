@@ -25,11 +25,12 @@ layout: layouts/base.njk
   </div>
 </section>
 
+{%- if isHofba or (copy.problem | isSet) %}
 <section class="band" aria-labelledby="problem-heading">
   <div class="container flow" style="--flow-space: var(--space-l)">
     <div class="flow">
       <h2 id="problem-heading">{% if entry.inHouse %}Why I built it{% else %}The problem{% endif %}</h2>
-      <p class="lead">{{ copy.problem | open }}</p>
+      {% if copy.problem | isSet %}<p class="lead">{{ copy.problem }}</p>{% endif %}
     </div>
     {%- if isHofba %}
     <div class="home-proof__grid">
@@ -45,17 +46,22 @@ layout: layouts/base.njk
     {%- endif %}
   </div>
 </section>
+{%- endif %}
 
+{%- set decisions = copy.decisions | setOnly("title") -%}
+{%- if decisions.length %}
 <section class="band band--white" aria-labelledby="built-heading">
   <div class="container flow" style="--flow-space: var(--space-l)">
     <h2 id="built-heading">What I built, and why</h2>
     <ol class="decisions">
-      {%- for d in copy.decisions %}
-      <li class="decisions__item"><h3>{{ d.title | open }}</h3><p>{{ d.reason | open }}</p></li>
+      {%- for d in decisions %}
+      <li class="decisions__item"><h3>{{ d.title }}</h3>{% if d.reason | isSet %}<p>{{ d.reason }}</p>{% endif %}</li>
       {%- endfor %}
     </ol>
   </div>
 </section>
+{%- endif %}
+
 
 {%- set hasAfter = ("work/source/" + entry.slug + "-desktop.png") | hasImage -%}
 {%- if not isHofba or hasAfter %}
@@ -78,7 +84,6 @@ layout: layouts/base.njk
         {%- else %}<div class="work-card__placeholder"><p>[NEEDS: {{ entry.client }} phone screenshot]</p></div>{% endif %}
       </div>
     </div>
-    <p class="review-note">[COPY: pins for these screenshots, 3 or 4 specific details with a reason each]</p>
     {%- endif %}
   </div>
 </section>

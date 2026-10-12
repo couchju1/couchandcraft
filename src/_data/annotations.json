@@ -101,5 +101,45 @@
         "text": "Checkboxes for the kind of coverage, so nobody types a health history into a comment box."
       }
     ]
+  },
+  "hofba-after-desktop": {
+    "id": "hofba-after",
+    "image": "/assets/img/work/source/hall-of-fame-billiard-academy-desktop.png",
+    "alt": "Randy Goettlicher's new website, with his title, a Request Training button and his photo",
+    "pins": [
+      {
+        "x": 8,
+        "y": 21,
+        "text": "No ads. The first thing you see is who Randy is and where he teaches."
+      },
+      {
+        "x": 27,
+        "y": 4,
+        "text": "Menu pages named for what's on them: About Randy, The SPF & F Method, Instruction, Contact."
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "text": "The browser tab says \"Randy Goettlicher, ACS / PBIA Master Billiard Instructor, Dallas, TX.\""
+      },
+      {
+        "x": 8,
+        "y": 74,
+        "text": "A training request form on the site, and his phone number is a tap-to-call link."
+      }
+    ]
+  },
+  "hofba-after-mobile": {
+    "id": "hofba-after-mobile",
+    "start": 5,
+    "image": "/assets/img/work/source/hall-of-fame-billiard-academy-mobile.png",
+    "alt": "Randy Goettlicher's new website on a phone, fitting the screen",
+    "pins": [
+      {
+        "x": 90,
+        "y": 4,
+        "text": "On a phone, everything fits the screen."
+      }
+    ]
   }
 }

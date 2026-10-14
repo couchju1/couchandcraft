@@ -10,6 +10,7 @@
     "check": "node scripts/check.js",
     "test:a11y": "node scripts/a11y.js",
     "og": "node scripts/og.js",
+    "icons": "node scripts/icons.js",
     "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
     "check:prelaunch": "node scripts/check.js --prelaunch"
   },

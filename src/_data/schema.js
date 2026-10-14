@@ -12,6 +12,7 @@ module.exports = () => {
     name: business.name,
     url: home,
     description: business.descriptor,
+    logo: `${home}assets/img/brand/icons/mark-512.png`,
     image: `${home}assets/img/og/default.jpg`,
     address: {
       "@type": "PostalAddress",

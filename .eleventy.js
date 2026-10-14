@@ -104,6 +104,8 @@ module.exports = async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts/*.woff2": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({ "api/contact.php": "api/contact.php" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/og/*.jpg": "assets/img/og" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/brand/icons/*.png": "assets/img/brand/icons" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   eleventyConfig.on("eleventy.before", () => {
     if (!isProduction) return;

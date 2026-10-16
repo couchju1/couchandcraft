@@ -103,6 +103,9 @@ function checkConfig() {
   if (isObject(analytics) && isSet(analytics.ga4) && !/^G-[A-Z0-9]+$/.test(analytics.ga4)) {
     fail(`analytics.ga4 must look like G-XXXXXXXXXX (got ${analytics.ga4})`);
   }
+  if (isObject(analytics) && isSet(analytics.searchConsole) && !/^[A-Za-z0-9_-]{20,}$/.test(analytics.searchConsole)) {
+    fail(`analytics.searchConsole must be the content="..." value from Search Console's HTML tag (got ${analytics.searchConsole})`);
+  }
 
   if (isObject(about) && typeof about.showDayJob !== "boolean") {
     fail("about.showDayJob must be true or false");

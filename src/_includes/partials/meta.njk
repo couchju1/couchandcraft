@@ -4,7 +4,8 @@
 {% if description %}<meta name="description" content="{{ description }}">
 {% endif %}{% if noindex %}<meta name="robots" content="noindex">
 {% endif %}<link rel="canonical" href="{{ canonical }}">
-<meta property="og:site_name" content="{{ site.business.name }}">
+{% if site.analytics.searchConsole | isSet %}<meta name="google-site-verification" content="{{ site.analytics.searchConsole }}">
+{% endif %}<meta property="og:site_name" content="{{ site.business.name }}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="{{ ogTitle or title }}">

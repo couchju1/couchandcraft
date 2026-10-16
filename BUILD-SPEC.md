@@ -180,7 +180,7 @@ Every template reads from this. Values in `[...]` are open items. Templates must
     "facebook": null,
     "linkedin": null
   },
-  "analytics": { "ga4": "[JUSTIN TO SET]" },
+  "analytics": { "ga4": "[JUSTIN TO SET]", "searchConsole": "[content value of the HTML tag, or null]" },
   "about": { "showDayJob": false },
   "work": [
     {
